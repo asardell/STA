@@ -19,9 +19,29 @@ Voici les objectifs de ce chapitre :
 
 1. Créer un objet `a` avec la valeur `10` et un objet `b` avec la valeur `5`. 
 <details>
-<summary>Correction</summary>
+<summary>R</summary>
 
 ```r
+a <- 10
+b <- 5
+```
+</details>
+
+<details>
+
+<summary>Python</summary>
+
+```python
+a = 10
+b = 5
+```
+</details>
+
+<details>
+
+<summary>Excel</summary>
+
+```
 a <- 10
 b <- 5
 ```
