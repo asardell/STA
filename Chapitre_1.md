@@ -9,12 +9,12 @@ Voici les objectifs de ce chapitre :
 ## Exercice 1 - xxxx
 
 ### Mémo
-| Nom de l'indicateur | Description    | Notation | Formule  |
-|------------|-------------|--------------------|---------|
-| Moyenne             | La moyenne arithmétique est la somme des valeurs divisée par le nombre de valeurs. | \(\bar{x}\) | \(\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i\) |
-| Minimum             | La plus petite valeur d'un ensemble de données.            | \(\min\)  | \(\min = x_{(1)}\)               |
-| Maximum             | La plus grande valeur d'un ensemble de données.            | \(\max\)  | \(\max = x_{(n)}\)               |
-| Médiane             | La valeur qui sépare la moitié inférieure de la moitié supérieure d'un ensemble de données. | \(\tilde{x}\) |  | 
+| Nom de l'indicateur | Description                                                | Notation | Formule                          |
+|---------------------|------------------------------------------------------------|----------|----------------------------------|
+| Moyenne             | La moyenne arithmétique est la somme des valeurs divisée par le nombre de valeurs. | $\bar{x}$ | $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$ |
+| Minimum             | La plus petite valeur d'un ensemble de données.            | $\min$  | $\min = x_{(1)}$               |
+| Maximum             | La plus grande valeur d'un ensemble de données.            | $\max$  | $\max = x_{(n)}$               |
+| Médiane             | La valeur qui sépare la moitié inférieure de la moitié supérieure d'un ensemble de données. | $\tilde{x}$ | $\tilde{x}$
 
 ### Exercice sur les Fonctions en R
 
