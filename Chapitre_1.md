@@ -12,7 +12,7 @@ Dans ce chapitre, nous allons utiliser deux jeux de données :
 
 Les deux jeux de données sont présents par défaut dans les environnements [R](https://rdrr.io/snippets/) et [Python](https://colab.research.google.com/). Ils sont aussi accessibles dans le classeur Excel de ce repository.
 
-:warning les datasets peuvent avoir des différences selon le langage utilisé.
+:warning: les datasets peuvent avoir des différences selon le langage utilisé.
 
 ## Exercice 1 - Analyse d'une variable quantitative
 
