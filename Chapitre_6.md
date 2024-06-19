@@ -229,4 +229,4 @@ Voici les objectifs de ce chapitre :
 
 ## Aller plus loin
 
-Bien évidemment, il existe de très nombreuses variantes pour calculer des intervalles de confiance. Selon les paramètres de l'échantillon et du contexte de l'étude, on peut être amené à utiliser d'autres formules et également d'autres lois de probabilités pour calculer le fractile $Z$.
+Bien évidemment, il existe de très nombreuses variantes pour calculer des intervalles de confiance. Selon les paramètres de l'échantillon et du contexte de l'étude, on peut être amené à utiliser d'autres formules et également d'autres lois de probabilités pour calculer le fractile $Z$. [Plus d'information ici](https://statsandr.com/blog/what-statistical-test-should-i-do/images/overview-statistical-tests-statsandr.svg).
