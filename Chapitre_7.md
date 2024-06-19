@@ -7,13 +7,23 @@ Voici les objectifs de ce chapitre :
 - [ ] Analyser la p-value
 - [ ] Comprendre l'intérêt des hypothèses de départ et alternative
 
+1. [Le test de corrélation](#le-test-de-corrélation)
+   1. [Objectifs](#objectifs)
+   2. [Exercice 1 - Coefficient de corrélation linéaire de Pearson](#exercice-1---coefficient-de-corrélation-linéaire-de-pearson)
+      1. [Mémo](#mémo)
+      2. [Reprendre la matrice de corrélation des variables quantitatives.](#reprendre-la-matrice-de-corrélation-des-variables-quantitatives)
+   3. [Exercice 2 - Test statistiques avec $H\_0$ et $H\_1$](#exercice-2---test-statistiques-avec-h_0-et-h_1)
+   4. [Exercice 3 - L'influence de la taille de l'échantillon](#exercice-3---linfluence-de-la-taille-de-léchantillon)
+   5. [Exercice 4 - Cas de relation non linéaire mais monotone](#exercice-4---cas-de-relation-non-linéaire-mais-monotone)
+   6. [Bonus - Cas de relation non linéaire et non monotone](#bonus---cas-de-relation-non-linéaire-et-non-monotone)
+
 Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent par défaut dans les environnements [R](https://rdrr.io/snippets/) et [Python](https://colab.research.google.com/). Il est aussi accessible dans le classeur Excel de ce repository.
 
 :warning: le dataset peut avoir des différences selon le langage utilisé.
 
 ## Exercice 1 - Coefficient de corrélation linéaire de Pearson
 
-### Rappel du chapitre 2
+### Mémo
 | Nom de l'indicateur | Description    | Notation | Formule                          |
 |---------------------|----------------|----------|----------------------------------|
 | Covariance   | Mesure de la tendance linéaire entre deux variables aléatoires. | $\text{cov}(X, Y)$ | $\text{cov}(X, Y) = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})$ |
@@ -47,13 +57,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 </details>
 
 
-## Exercice 2 - Test statistiques avec les $H_0$ et $H_1$
-
+## Exercice 2 - Test statistiques avec $H_0$ et $H_1$
 
 ## Exercice 3 - L'influence de la taille de l'échantillon
 
-
 ## Exercice 4 - Cas de relation non linéaire mais monotone
-
 
 ## Bonus - Cas de relation non linéaire et non monotone
