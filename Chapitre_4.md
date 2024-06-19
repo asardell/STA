@@ -26,10 +26,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 ### Mémo
 | Nom de l'indicateur | Description    | Notation | Formule                          |
 |---------------------|----------------|----------|----------------------------------|
-| Moyenne générale           | La moyenne de toutes les observations dans l'ensemble de données.           | $\bar{X}$        | $\bar{X} = \frac{1}{N} \sum_{i=1}^{N} x_i$       |
-| Variance générale          | La variance de toutes les observations dans l'ensemble de données.          | $s^2$            | $s^2 = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{X})^2$   |
-| Moyenne marginale          | La moyenne des observations pour chaque niveau d'un facteur.                | $\bar{x}_i$      | $\bar{x}_i = \frac{1}{n_i} \sum_{j=1}^{n_i} x_{ij}$                                             |
-| Variance marginale         | La variance des observations pour chaque niveau d'un facteur.               | $s^2_i$          | $s^2_i = \frac{1}{n_i-1} \sum_{j=1}^{n_i} (x_{ij} - \bar{x}_i)^2$                               |
+| Moyenne générale           | La moyenne de toutes les observations dans l'ensemble de données.           | $\bar{x}$        | $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$  |
+| Variance générale          | La variance de toutes les observations dans l'ensemble de données.          | $s^2$            | $s^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2$   |
+| Moyenne marginale          | La moyenne des observations pour chaque niveau d'un facteur.              | $\bar{x}_i$    | $\bar{x_i} = \frac{1}{n_i} \sum_{j=1}^{n_j} x_{ij}$ |
+| Variance marginale         | La variance des observations pour chaque niveau d'un facteur.               | $s^2_i$        | $s^2_i = \frac{1}{n_i} \sum_{j=1}^{n_i} (x_{ij} - \bar{x}_{ij})^2$           |
 
 ### Calculer des effectifs de chaque groupe. 
 

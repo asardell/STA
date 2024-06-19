@@ -50,8 +50,8 @@ Les deux jeux de données sont présents par défaut dans les environnements [R]
 | Maximum             | La plus grande valeur d'un ensemble de données.            | $\max$  | $\max = x_{(n)}$               |
 | Étendue             | La différence entre la plus grande et la plus petite valeur d'un ensemble de données, mesurant la dispersion totale. | $\text{étendue}$ | $\text{étendue} = \max - \min$ |
 | Médiane             | La valeur qui sépare la moitié inférieure de la moitié supérieure d'un ensemble de données. | $\tilde{x}$ | - |
-| Variance            | La variance mesure la dispersion des valeurs autour de la moyenne. | $s^2$ | $s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$ |
-| Écart-type          | L'écart-type est la racine carrée de la variance, mesurant également la dispersion des valeurs. | $s$ | $s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2}$ |
+| Variance            | La variance mesure la dispersion des valeurs autour de la moyenne. | $s^2$ | $s^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2$ |
+| Écart-type          | L'écart-type est la racine carrée de la variance, mesurant également la dispersion des valeurs. | $s$ | $s = \sqrt{s^2}$ |
 | Quartiles           | Les trois valeurs qui divisent un ensemble de données trié en quatre parties égales, chaque partie représentant 25% des données. | $Q_1, Q_2, Q_3$ | Dépend de la méthode de calcul, par exemple pour $Q_1$: $Q_1 = x_{(\lceil 0.25 \cdot n \rceil)}$ |
 | Écart interquartile | La différence entre le troisième et le premier quartile, mesurant la dispersion au milieu de la distribution. | $IQR$ | $IQR = Q_3 - Q_1$ |
 | Déciles             | Les neuf valeurs qui divisent un ensemble de données trié en dix parties égales, chaque partie représentant 10% des données. | $D_1, D_2, ..., D_9$ | Dépend de la méthode de calcul, par exemple pour $D_1$: $D_1 = x_{(\lceil 0.1 \cdot n \rceil)}$ |
