@@ -66,6 +66,7 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 </details>
 
 #### Calculer le coefficient de corrélation entre deux variables quantitatives. 
+
 <details>
 <summary>R</summary>
 
@@ -132,6 +133,9 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 </details>
 
 #### Construire un nuage de points entre ces deux variables. 
+
+[Voici quelques exemples de nuage de points.](https://saylordotorg.github.io/text_introductory-statistics/section_14/07aa5db140b70615a15e8631c2d7a2c4.jpg)
+
 <details>
 <summary>R</summary>
 
