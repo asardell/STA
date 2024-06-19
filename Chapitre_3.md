@@ -227,7 +227,8 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 | Effectifs observés     | Le nombre d'observations effectivement comptées pour chaque catégorie.      | $O_i$     | - |
 | Effectifs théoriques   | Le nombre d'observations attendu pour chaque catégorie selon une hypothèse. | $E_i$      | $E_i = \frac{n \cdot f_i}{N}$      |
 | Chi² locaux      | Mesure de l'écart entre les effectifs observés et théoriques pour chaque catégorie. | $\chi^2_i$     | $\chi^2_i = \frac{(O_i - E_i)^2}{E_i}$        |
-| V de Cramer    | Mesure de l'association entre deux variables catégorielles.    | $V$    | $V = \sqrt{\frac{\chi^2}{n \cdot (k-1)}}$ où $\chi^2$ est la statistique chi-carré, $n$ est le nombre total d'observations, et $k$ est le nombre de catégories. |
+| Chi²  | Somme des chi² locaux, mesure globale de l'écart entre les effectifs observés et théoriques. | $\chi^2$     | $\chi^2 = \sum_{i} \frac{(O_i - E_i)^2}{E_i}$  |
+| V de Cramer    | Mesure de l'association entre deux variables catégorielles.    | $V$    | $V = \sqrt{\frac{\chi^2}{n \cdot (k-1)}}$ où $\chi^2$ est la statistique chi-carré, $n$ est le nombre total d'observations, et $k$ est le nombre de catégories le plus petit entre les deux variables. |
 
 ### Calculer les effectifs observés. 
 

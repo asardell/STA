@@ -23,6 +23,7 @@ Voici les objectifs de ce chapitre :
       12. [Calculer les déciles des variables quantitatives.](#calculer-les-déciles-des-variables-quantitatives)
       13. [Calculer les centiles des variables quantitatives.](#calculer-les-centiles-des-variables-quantitatives)
       14. [Construire un histogramme des variables quantitatives.](#construire-un-histogramme-des-variables-quantitatives)
+      15. [Construire un boxplot des variables quantitatives.](#construire-un-boxplot-des-variables-quantitatives)
    3. [Exercice 2 - Analyse d'une variable qualitatives](#exercice-2---analyse-dune-variable-qualitatives)
       1. [Charger les données.](#charger-les-données-1)
       2. [Calculer les effectifs des classes des passagers.](#calculer-les-effectifs-des-classes-des-passagers)
@@ -56,6 +57,7 @@ Les deux jeux de données sont présents par défaut dans les environnements [R]
 | Déciles             | Les neuf valeurs qui divisent un ensemble de données trié en dix parties égales, chaque partie représentant 10% des données. | $D_1, D_2, ..., D_9$ | Dépend de la méthode de calcul, par exemple pour $D_1$: $D_1 = x_{(\lceil 0.1 \cdot n \rceil)}$ |
 | Centiles            | Les 99 valeurs qui divisent un ensemble de données trié en cent parties égales, chaque partie représentant 1% des données. | $C_1, C_2, ..., C_{99}$ | Dépend de la méthode de calcul, par exemple pour $C_1$: $C_1 = x_{(\lceil 0.01 \cdot n \rceil)}$ |
 | Histogramme         | Représentation graphique de la distribution des valeurs d'un ensemble de données sous forme de barres. | - | - |
+| Boxplot         | Représentation graphique de la distribution des valeurs d'un ensemble de données sous forme de boîte. | - | - |
 
 ### Charger les données. 
 <details>
@@ -403,6 +405,41 @@ sns.histplot(iris_df[colonne], kde=True)
 plt.title(f'Histogramme de {colonne}')
 
 # Afficher l'histogramme
+plt.show()
+```
+</details>
+
+
+### Construire un boxplot des variables quantitatives. 
+
+Plus d'info sur l'interprétation d'un boxplot avec deux approches : 
+- [Avec outliers](https://cdn1.byjus.com/wp-content/uploads/2020/10/Box-Plot-and-Whisker-Plot-1.png)
+- [Sans outliers](https://media.geeksforgeeks.org/wp-content/uploads/20201127012952/boxplot-660x233.png)
+
+<details>
+<summary>R</summary>
+
+```r
+boxplot(iris$Sepal.Length, main = "Boxplot Sepal.Length")
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Charger le jeu de données Iris depuis seaborn
+iris = sns.load_dataset('iris')
+
+# Créer un boxplot de 'sepal_length'
+plt.figure(figsize=(10, 6))
+sns.boxplot(x=iris['sepal_length'])
+plt.title('Boxplot de la longueur des sépales (cm)')
+
+# Afficher le boxplot
 plt.show()
 ```
 </details>
