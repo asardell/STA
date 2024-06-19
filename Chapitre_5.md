@@ -713,3 +713,4 @@ Voici les objectifs de ce chapitre :
 
 Il existe de nombreuses lois de probabilités qui permettent de décrire des distributions avec d'autres formes ([plus d'infos](https://miro.medium.com/v2/resize:fit:962/1*lST5ngOvSMPqTTQCXxzneA.png)).
 Ces lois sont très utilisés notamment dans les tests statistiques pour modéliser des phénomènes à partir de distributions issues de lois théoriques.
+Dans ce chapitre, nous avons abordé uniquement des lois continues.
