@@ -10,27 +10,26 @@ Voici les objectifs de ce chapitre :
    1. [Objectifs](#objectifs)
    2. [Exercice 1 - Analyse d'une variable quantitative](#exercice-1---analyse-dune-variable-quantitative)
       1. [Mémo](#mémo)
-      2. [Exercice sur les Fonctions en R](#exercice-sur-les-fonctions-en-r)
-         1. [Charger les données.](#charger-les-données)
-         2. [Calculer les moyennes des variables quantitatives.](#calculer-les-moyennes-des-variables-quantitatives)
-         3. [Calculer les minimums des variables quantitatives.](#calculer-les-minimums-des-variables-quantitatives)
-         4. [Calculer les maximums des variables quantitatives.](#calculer-les-maximums-des-variables-quantitatives)
-         5. [Calculer les variances des variables quantitatives.](#calculer-les-variances-des-variables-quantitatives)
-         6. [Calculer les écart-types des variables quantitatives.](#calculer-les-écart-types-des-variables-quantitatives)
-         7. [Calculer les étendus des variables quantitatives.](#calculer-les-étendus-des-variables-quantitatives)
-         8. [Calculer les médianes des variables quantitatives.](#calculer-les-médianes-des-variables-quantitatives)
-         9. [Calculer les quartiles des variables quantitatives.](#calculer-les-quartiles-des-variables-quantitatives)
-         10. [Calculer l'écart interquartile des variables quantitatives.](#calculer-lécart-interquartile-des-variables-quantitatives)
-         11. [Calculer les déciles des variables quantitatives.](#calculer-les-déciles-des-variables-quantitatives)
-         12. [Calculer les centiles des variables quantitatives.](#calculer-les-centiles-des-variables-quantitatives)
-         13. [Construire un histogramme des variables quantitatives.](#construire-un-histogramme-des-variables-quantitatives)
+      2. [Charger les données.](#charger-les-données)
+      3. [Calculer les moyennes des variables quantitatives.](#calculer-les-moyennes-des-variables-quantitatives)
+      4. [Calculer les minimums des variables quantitatives.](#calculer-les-minimums-des-variables-quantitatives)
+      5. [Calculer les maximums des variables quantitatives.](#calculer-les-maximums-des-variables-quantitatives)
+      6. [Calculer les variances des variables quantitatives.](#calculer-les-variances-des-variables-quantitatives)
+      7. [Calculer les écart-types des variables quantitatives.](#calculer-les-écart-types-des-variables-quantitatives)
+      8. [Calculer les étendus des variables quantitatives.](#calculer-les-étendus-des-variables-quantitatives)
+      9. [Calculer les médianes des variables quantitatives.](#calculer-les-médianes-des-variables-quantitatives)
+      10. [Calculer les quartiles des variables quantitatives.](#calculer-les-quartiles-des-variables-quantitatives)
+      11. [Calculer l'écart interquartile des variables quantitatives.](#calculer-lécart-interquartile-des-variables-quantitatives)
+      12. [Calculer les déciles des variables quantitatives.](#calculer-les-déciles-des-variables-quantitatives)
+      13. [Calculer les centiles des variables quantitatives.](#calculer-les-centiles-des-variables-quantitatives)
+      14. [Construire un histogramme des variables quantitatives.](#construire-un-histogramme-des-variables-quantitatives)
    3. [Exercice 2 - Analyse d'une variable qualitatives](#exercice-2---analyse-dune-variable-qualitatives)
-         1. [Charger les données.](#charger-les-données-1)
-         2. [Calculer les effectifs des classes des passagers.](#calculer-les-effectifs-des-classes-des-passagers)
-         3. [Calculer les fréquences des classes des passagers.](#calculer-les-fréquences-des-classes-des-passagers)
-         4. [Calculer les effectifs cumulés des classes des passagers.](#calculer-les-effectifs-cumulés-des-classes-des-passagers)
-         5. [Construire un diagramme en barres.](#construire-un-diagramme-en-barres)
-         6. [Construire un diagramme circulaire.](#construire-un-diagramme-circulaire)
+      1. [Charger les données.](#charger-les-données-1)
+      2. [Calculer les effectifs des classes des passagers.](#calculer-les-effectifs-des-classes-des-passagers)
+      3. [Calculer les fréquences des classes des passagers.](#calculer-les-fréquences-des-classes-des-passagers)
+      4. [Calculer les effectifs cumulés des classes des passagers.](#calculer-les-effectifs-cumulés-des-classes-des-passagers)
+      5. [Construire un diagramme en barres.](#construire-un-diagramme-en-barres)
+      6. [Construire un diagramme circulaire.](#construire-un-diagramme-circulaire)
 
 Dans ce chapitre, nous allons utiliser deux jeux de données : 
 - Titanic
@@ -58,9 +57,7 @@ Les deux jeux de données sont présents par défaut dans les environnements [R]
 | Centiles            | Les 99 valeurs qui divisent un ensemble de données trié en cent parties égales, chaque partie représentant 1% des données. | $C_1, C_2, ..., C_{99}$ | Dépend de la méthode de calcul, par exemple pour $C_1$: $C_1 = x_{(\lceil 0.01 \cdot n \rceil)}$ |
 | Histogramme         | Représentation graphique de la distribution des valeurs d'un ensemble de données sous forme de barres. | - | - |
 
-### Exercice sur les Fonctions en R
-
-#### Charger les données. 
+### Charger les données. 
 <details>
 <summary>R</summary>
 
@@ -88,7 +85,7 @@ iris_df.head()
 ```
 </details>
 
-#### Calculer les moyennes des variables quantitatives. 
+### Calculer les moyennes des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -113,7 +110,7 @@ MOYENNE(B:B)
 ```
 </details>
 
-#### Calculer les minimums des variables quantitatives. 
+### Calculer les minimums des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -138,7 +135,7 @@ MIN(B:B)
 ```
 </details>
 
-#### Calculer les maximums des variables quantitatives. 
+### Calculer les maximums des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -163,7 +160,7 @@ MAX(B:B)
 ```
 </details>
 
-#### Calculer les variances des variables quantitatives. 
+### Calculer les variances des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -188,7 +185,7 @@ VAR(B:B)
 ```
 </details>
 
-#### Calculer les écart-types des variables quantitatives. 
+### Calculer les écart-types des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -213,7 +210,7 @@ ECARTYPE(B:B)
 ```
 </details>
 
-#### Calculer les étendus des variables quantitatives. 
+### Calculer les étendus des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -238,7 +235,7 @@ MAX(B:B) - MIN(B:B)
 ```
 </details>
 
-#### Calculer les médianes des variables quantitatives. 
+### Calculer les médianes des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -263,7 +260,7 @@ MEDIANE(B:B)
 ```
 </details>
 
-#### Calculer les quartiles des variables quantitatives. 
+### Calculer les quartiles des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -294,7 +291,7 @@ QUARTILE(B:B;3)
 ```
 </details>
 
-#### Calculer l'écart interquartile des variables quantitatives. 
+### Calculer l'écart interquartile des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -323,7 +320,7 @@ QUARTILE(B:B;3) - QUARTILE(B:B;1)
 ```
 </details>
 
-#### Calculer les déciles des variables quantitatives. 
+### Calculer les déciles des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -351,7 +348,7 @@ CENTILE(B:B;0,9)
 ```
 </details>
 
-#### Calculer les centiles des variables quantitatives. 
+### Calculer les centiles des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -380,7 +377,7 @@ CENTILE(B:B;0,99)
 ```
 </details>
 
-#### Construire un histogramme des variables quantitatives. 
+### Construire un histogramme des variables quantitatives. 
 <details>
 <summary>R</summary>
 
@@ -421,7 +418,7 @@ plt.show()
 | Diagramme en barres | Représentation graphique de la fréquence des différentes valeurs d'un ensemble de données sous forme de barres. | - | - |
 | Diagramme circulaire | Représentation graphique des proportions des différentes valeurs d'un ensemble de données sous forme de secteurs d'un disque. | - | - |
 
-#### Charger les données. 
+### Charger les données. 
 <details>
 <summary>R</summary>
 
@@ -448,7 +445,7 @@ titanic.head()
 ```
 </details>
 
-#### Calculer les effectifs des classes des passagers. 
+### Calculer les effectifs des classes des passagers. 
 <details>
 <summary>R</summary>
 
@@ -473,7 +470,7 @@ Tableau croisé dynamique
 ```
 </details>
 
-#### Calculer les fréquences des classes des passagers. 
+### Calculer les fréquences des classes des passagers. 
 <details>
 <summary>R</summary>
 
@@ -499,7 +496,7 @@ Tableau croisé dynamique
 ```
 </details>
 
-#### Calculer les effectifs cumulés des classes des passagers. 
+### Calculer les effectifs cumulés des classes des passagers. 
 <details>
 <summary>R</summary>
 
@@ -540,7 +537,7 @@ Tableau croisé dynamique
 ```
 </details>
 
-#### Construire un diagramme en barres. 
+### Construire un diagramme en barres. 
 <details>
 <summary>R</summary>
 
@@ -574,7 +571,7 @@ plt.show()
 ```
 </details>
 
-#### Construire un diagramme circulaire. 
+### Construire un diagramme circulaire. 
 <details>
 <summary>R</summary>
 
