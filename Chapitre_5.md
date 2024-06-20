@@ -283,6 +283,8 @@ plt.show()
 <summary>R</summary>
 
 ```r
+# Simuler un échantillon de taille 30 suivant une loi normale de paramètre N(µ = 4, σ = 2)
+sample <- rnorm(30, mean = 4, sd = 2)
 ```
 </details>
 
@@ -293,7 +295,7 @@ plt.show()
 import numpy as np
 import matplotlib.pyplot as pl
 # Simuler un échantillon de taille 30 suivant une loi normale de paramètre N(µ = 4, σ = 2)
-sample_30_4_2 = np.random.normal(4, 2, 30)
+sample = np.random.normal(4, 2, 30)
 ```
 </details>
 
@@ -309,6 +311,19 @@ sample_30_4_2 = np.random.normal(4, 2, 30)
 <summary>R</summary>
 
 ```r
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 30
+mean_30 <- mean(sample )
+min_val_30 <- min(sample )
+max_val_30 <- max(sample )
+median_30 <- median(sample )
+std_dev_30 <- sd(sample )
+
+cat("Échantillon de taille 30\n")
+cat("Moyenne:", mean_30, "\n")
+cat("Minimum:", min_val_30, "\n")
+cat("Maximum:", max_val_30, "\n")
+cat("Médiane:", median_30, "\n")
+cat("Écart-type:", std_dev_30, "\n")
 ```
 </details>
 
@@ -316,11 +331,11 @@ sample_30_4_2 = np.random.normal(4, 2, 30)
 <summary>Python</summary>
 
 ```python
-mean = np.mean(sample_30_4_2)
-min_val = np.min(sample_30_4_2)
-max_val = np.max(sample_30_4_2)
-median = np.median(sample_30_4_2)
-std_dev = np.std(sample_30_4_2)
+mean = np.mean(sample)
+min_val = np.min(sample)
+max_val = np.max(sample)
+median = np.median(sample)
+std_dev = np.std(sample)
 
 print(f"Moyenne: {mean}")
 print(f"Minimum: {min_val}")
@@ -342,6 +357,13 @@ print(f"Écart-type: {std_dev}")
 <summary>R</summary>
 
 ```r
+library(ggplot2)
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 30
+ggplot(data.frame(sample ), aes(x = sample )) +
+  geom_histogram(binwidth = 0.5, color = "black", fill = "blue") +
+  labs(title = "Histogramme de l'échantillon de taille 30 suivant une loi normale N(4, 2)",
+       x = "Valeurs", y = "Fréquence")
+
 ```
 </details>
 
@@ -351,7 +373,7 @@ print(f"Écart-type: {std_dev}")
 ```python
 # Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 30
 plt.figure(figsize=(10, 6))
-plt.hist(sample_30_4_2, bins=10, edgecolor='black')
+plt.hist(sample, bins=10, edgecolor='black')
 plt.title("Histogramme de l'échantillon de taille 30 suivant une loi normale N(4, 2)")
 plt.xlabel("Valeurs")
 plt.ylabel("Fréquence")
@@ -371,6 +393,9 @@ plt.show()
 <summary>R</summary>
 
 ```r
+# Calculer les quartiles
+quartiles <- quantile(sample , c(0.25, 0.5, 0.75))
+cat("Quartiles (25%, 50%, 75%):", quartiles , "\n")
 ```
 </details>
 
@@ -379,8 +404,8 @@ plt.show()
 
 ```python
 # Calculer les quartiles
-quartiles_30_4_2 = np.percentile(sample_30_4_2, [25, 50, 75])
-print(f"Quartiles (25%, 50%, 75%): {quartiles_30_4_2}")
+quartiles = np.percentile(sample, [25, 50, 75])
+print(f"Quartiles (25%, 50%, 75%): {quartiles}")
 ```
 </details>
 
@@ -399,6 +424,8 @@ print(f"Quartiles (25%, 50%, 75%): {quartiles_30_4_2}")
 <summary>R</summary>
 
 ```r
+# Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 2)
+sample <- rnorm(2000, mean = 4, sd = 2)
 ```
 </details>
 
@@ -407,7 +434,7 @@ print(f"Quartiles (25%, 50%, 75%): {quartiles_30_4_2}")
 
 ```python
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 2)
-sample_2000_4_2 = np.random.normal(4, 2, 2000)
+sample = np.random.normal(4, 2, 2000)
 ```
 </details>
 
@@ -423,6 +450,19 @@ sample_2000_4_2 = np.random.normal(4, 2, 2000)
 <summary>R</summary>
 
 ```r
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
+mean_2000_2 <- mean(sample )
+min_val_2000_2 <- min(sample )
+max_val_2000_2 <- max(sample )
+median_2000_2 <- median(sample )
+std_dev_2000_2 <- sd(sample )
+
+cat("\nÉchantillon de taille 2000 (σ = 2)\n")
+cat("Moyenne:", mean_2000_2, "\n")
+cat("Minimum:", min_val_2000_2, "\n")
+cat("Maximum:", max_val_2000_2, "\n")
+cat("Médiane:", median_2000_2, "\n")
+cat("Écart-type:", std_dev_2000_2, "\n")
 ```
 </details>
 
@@ -430,11 +470,11 @@ sample_2000_4_2 = np.random.normal(4, 2, 2000)
 <summary>Python</summary>
 
 ```python
-mean = np.mean(sample_2000_4_2)
-min_val = np.min(sample_2000_4_2)
-max_val = np.max(sample_2000_4_2)
-median = np.median(sample_2000_4_2)
-std_dev = np.std(sample_2000_4_2)
+mean = np.mean(sample)
+min_val = np.min(sample)
+max_val = np.max(sample)
+median = np.median(sample)
+std_dev = np.std(sample)
 
 print(f"Moyenne: {mean}")
 print(f"Minimum: {min_val}")
@@ -456,6 +496,11 @@ print(f"Écart-type: {std_dev}")
 <summary>R</summary>
 
 ```r
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+ggplot(data.frame(sample ), aes(x = sample )) +
+  geom_histogram(binwidth = 0.5, color = "black", fill = "blue") +
+  labs(title = "Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 2)",
+       x = "Valeurs", y = "Fréquence")
 ```
 </details>
 
@@ -465,7 +510,7 @@ print(f"Écart-type: {std_dev}")
 ```python
 # Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
 plt.figure(figsize=(10, 6))
-plt.hist(sample_2000_4_2, bins=30, edgecolor='black')
+plt.hist(sample, bins=30, edgecolor='black')
 plt.title("Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 2)")
 plt.xlabel("Valeurs")
 plt.ylabel("Fréquence")
@@ -485,6 +530,11 @@ plt.show()
 <summary>R</summary>
 
 ```r
+# Calculer les déciles {1, 9} et les centiles {90, 95, 99}
+deciles <- quantile(sample , c(0.10, 0.90))
+centiles <- quantile(sample , c(0.90, 0.95, 0.99))
+cat("Déciles (10%, 90%):", deciles , "\n")
+cat("Centiles (90%, 95%, 99%):", centiles , "\n")
 ```
 </details>
 
@@ -493,10 +543,10 @@ plt.show()
 
 ```python
 # Calculer les déciles {1, 9} et les centiles {90, 95, 99}
-deciles_2000_4_2 = np.percentile(sample_2000_4_2, [10, 90])
-centiles_2000_4_2 = np.percentile(sample_2000_4_2, [90, 95, 99])
-print(f"Déciles (10%, 90%): {deciles_2000_4_2}")
-print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_2}")
+deciles = np.percentile(sample, [10, 90])
+centiles2 = np.percentile(sample, [90, 95, 99])
+print(f"Déciles (10%, 90%): {deciles}")
+print(f"Centiles (90%, 95%, 99%): {centiles}")
 ```
 </details>
 
@@ -514,6 +564,8 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_2}")
 <summary>R</summary>
 
 ```r
+# Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 6)
+sample <- rnorm(2000, mean = 4, sd = 6)
 ```
 </details>
 
@@ -522,7 +574,7 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_2}")
 
 ```python
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 6)
-sample_2000_4_6 = np.random.normal(4, 6, 2000)
+sample = np.random.normal(4, 6, 2000)
 ```
 </details>
 
@@ -538,6 +590,19 @@ sample_2000_4_6 = np.random.normal(4, 6, 2000)
 <summary>R</summary>
 
 ```r
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
+mean_2000_6 <- mean(sample )
+min_val_2000_6 <- min(sample )
+max_val_2000_6 <- max(sample )
+median_2000_6 <- median(sample )
+std_dev_2000_6 <- sd(sample )
+
+cat("\nÉchantillon de taille 2000 (σ = 6)\n")
+cat("Moyenne:", mean_2000_6, "\n")
+cat("Minimum:", min_val_2000_6, "\n")
+cat("Maximum:", max_val_2000_6, "\n")
+cat("Médiane:", median_2000_6, "\n")
+cat("Écart-type:", std_dev_2000_6, "\n")
 ```
 </details>
 
@@ -545,11 +610,11 @@ sample_2000_4_6 = np.random.normal(4, 6, 2000)
 <summary>Python</summary>
 
 ```python
-mean = np.mean(sample_2000_4_6)
-min_val = np.min(sample_2000_4_6)
-max_val = np.max(sample_2000_4_6)
-median = np.median(sample_2000_4_6)
-std_dev = np.std(sample_2000_4_6)
+mean = np.mean(sample)
+min_val = np.min(sample)
+max_val = np.max(sample)
+median = np.median(sample)
+std_dev = np.std(sample)
 
 print(f"Moyenne: {mean}")
 print(f"Minimum: {min_val}")
@@ -571,6 +636,11 @@ print(f"Écart-type: {std_dev}")
 <summary>R</summary>
 
 ```r
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+ggplot(data.frame(sample ), aes(x = sample )) +
+  geom_histogram(binwidth = 1, color = "black", fill = "blue") +
+  labs(title = "Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 6)",
+       x = "Valeurs", y = "Fréquence")
 ```
 </details>
 
@@ -580,7 +650,7 @@ print(f"Écart-type: {std_dev}")
 ```python
 # Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
 plt.figure(figsize=(10, 6))
-plt.hist(sample_2000_4_6, bins=30, edgecolor='black')
+plt.hist(sample, bins=30, edgecolor='black')
 plt.title("Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 6)")
 plt.xlabel("Valeurs")
 plt.ylabel("Fréquence")
@@ -600,6 +670,11 @@ plt.show()
 <summary>R</summary>
 
 ```r
+# Calculer les déciles {1, 9} et les centiles {90, 95, 99}
+deciles <- quantile(sample , c(0.10, 0.90))
+centiles<- quantile(sample , c(0.90, 0.95, 0.99))
+cat("Déciles (10%, 90%):", deciles , "\n")
+cat("Centiles (90%, 95%, 99%):", centiles, "\n")
 ```
 </details>
 
@@ -608,10 +683,10 @@ plt.show()
 
 ```python
 # Calculer les déciles {1, 9} et les centiles {90, 95, 99}
-deciles_2000_4_6 = np.percentile(sample_2000_4_6, [10, 90])
-centiles_2000_4_6 = np.percentile(sample_2000_4_6, [90, 95, 99])
-print(f"Déciles (10%, 90%): {deciles_2000_4_6}")
-print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
+deciles = np.percentile(sample, [10, 90])
+centiles = np.percentile(sample, [90, 95, 99])
+print(f"Déciles (10%, 90%): {deciles}")
+print(f"Centiles (90%, 95%, 99%): {centiles}")
 ```
 </details>
 
@@ -631,6 +706,8 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 0, σ = 1)
+sample <- rnorm(2000, mean = 0, sd = 1)
 ```
 </details>
 
@@ -638,6 +715,8 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 0, σ = 1)
+sample = np.random.normal(0, 1, 2000)
 ```
 </details>
 
@@ -653,6 +732,19 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
+mean_2000_0_1 <- mean(sample )
+min_val_2000_0_1 <- min(sample )
+max_val_2000_0_1 <- max(sample )
+median_2000_0_1 <- median(sample )
+std_dev_2000_0_1 <- sd(sample )
+
+cat("\nÉchantillon de taille 2000 (σ = 1)\n")
+cat("Moyenne:", mean_2000_0_1, "\n")
+cat("Minimum:", min_val_2000_0_1, "\n")
+cat("Maximum:", max_val_2000_0_1, "\n")
+cat("Médiane:", median_2000_0_1, "\n")
+cat("Écart-type:", std_dev_2000_0_1, "\n")
 ```
 </details>
 
@@ -660,6 +752,17 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+mean = np.mean(sample)
+min_val = np.min(sample)
+max_val = np.max(sample)
+median = np.median(sample)
+std_dev = np.std(sample)
+
+print(f"Moyenne: {mean}")
+print(f"Minimum: {min_val}")
+print(f"Maximum: {max_val}")
+print(f"Médiane: {median}")
+print(f"Écart-type: {std_dev}")
 ```
 </details>
 
@@ -675,6 +778,11 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+ggplot(data.frame(sample), aes(x = sample )) +
+  geom_histogram(binwidth = 0.1, color = "black", fill = "blue") +
+  labs(title = "Histogramme de l'échantillon de taille 2000 suivant une loi normale N(0, 1)",
+       x = "Valeurs", y = "Fréquence")
 ```
 </details>
 
@@ -682,6 +790,13 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+plt.figure(figsize=(10, 6))
+plt.hist(sample, bins=30, edgecolor='black')
+plt.title("Histogramme de l'échantillon de taille 2000 suivant une loi normale N(0, 1")
+plt.xlabel("Valeurs")
+plt.ylabel("Fréquence")
+plt.show()
 ```
 </details>
 
@@ -697,6 +812,11 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Calculer les déciles {1, 9} et les centiles {90, 95, 99}
+deciles <- quantile(sample , c(0.10, 0.90))
+centiles<- quantile(sample , c(0.90, 0.95, 0.99))
+cat("Déciles (10%, 90%):", deciles , "\n")
+cat("Centiles (90%, 95%, 99%):", centiles, "\n")
 ```
 </details>
 
@@ -704,6 +824,11 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Calculer les déciles {1, 9} et les centiles {90, 95, 99}
+deciles = np.percentile(sample, [10, 90])
+centiles = np.percentile(sample, [90, 95, 99])
+print(f"Déciles (10%, 90%): {deciles}")
+print(f"Centiles (90%, 95%, 99%): {centiles}")
 ```
 </details>
 
@@ -731,6 +856,9 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Quelle est la valeur théorique de x telle que P(X <= x) = 0.90 ?
+x_90 <- qnorm(0.90)
+cat("Valeur théorique de x telle que P(X <= x) = 0.90 :", x_90, "\n")
 ```
 </details>
 
@@ -738,6 +866,11 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+import scipy.stats as stats
+
+# Quelle est la valeur théorique de x telle que P(X <= x) = 0.90 ?
+x_90 = stats.norm.ppf(0.90)
+print(f"Valeur théorique de x telle que P(X <= x) = 0.90 : {x_90}")
 ```
 </details>
 
@@ -753,6 +886,9 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Quelle est la valeur théorique de x telle que P(X <= x) = 0.95 ?
+x_95 <- qnorm(0.95)
+cat("Valeur théorique de x telle que P(X <= x) = 0.95 :", x_95, "\n"
 ```
 </details>
 
@@ -760,6 +896,9 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Quelle est la valeur théorique de x telle que P(X <= x) = 0.95 ?
+x_95 = stats.norm.ppf(0.95)
+print(f"Valeur théorique de x telle que P(X <= x) = 0.95 : {x_95}")
 ```
 </details>
 
@@ -775,6 +914,9 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Quelle est la valeur théorique de x telle que P(X <= x) = 0.99 ?
+x_99 <- qnorm(0.99)
+cat("Valeur théorique de x telle que P(X <= x) = 0.99 :", x_99, "\n")
 ```
 </details>
 
@@ -782,6 +924,9 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Quelle est la valeur théorique de x telle que P(X <= x) = 0.99 ?
+x_99 = stats.norm.ppf(0.99)
+print(f"Valeur théorique de x telle que P(X <= x) = 0.99 : {x_99}")
 ```
 </details>
 
@@ -797,6 +942,9 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Quelle est la probabilité théorique p telle que P(X <= 1.96) = p ?
+p_1_96 <- pnorm(1.96)
+cat("Probabilité théorique p telle que P(X <= 1.96) = p :", p_1_96, "\n")
 ```
 </details>
 
@@ -804,6 +952,9 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Quelle est la probabilité théorique p telle que P(X <= 1.96) = p ?
+p_1_96 = stats.norm.cdf(1.96)
+print(f"Probabilité théorique p telle que P(X <= 1.96) = p : {p_1_96}")
 ```
 </details>
 
@@ -821,6 +972,10 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Quelle est la valeur théorique de x telle que P(X > x) = 0.90 ?
+# P(X > x) = 0.90 -> P(X <= x) = 1 - 0.90 = 0.10
+x_greater_90 <- qnorm(0.10)
+cat("Valeur théorique de x telle que P(X > x) = 0.90 :", x_greater_90, "\n")
 ```
 </details>
 
@@ -828,6 +983,10 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Quelle est la valeur théorique de x telle que P(X > x) = 0.90 ?
+# P(X > x) = 0.90 -> P(X <= x) = 1 - 0.90 = 0.10
+x_greater_90 = stats.norm.ppf(0.10)
+print(f"Valeur théorique de x telle que P(X > x) = 0.90 : {x_greater_90}")
 ```
 </details>
 
@@ -843,6 +1002,10 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Quelle est la valeur théorique de x telle que P(X > x) = 0.05 ?
+# P(X > x) = 0.05 -> P(X <= x) = 1 - 0.05 = 0.95
+x_greater_05 <- qnorm(0.95)
+cat("Valeur théorique de x telle que P(X > x) = 0.05 :", x_greater_05, "\n")
 ```
 </details>
 
@@ -850,6 +1013,10 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Quelle est la valeur théorique de x telle que P(X > x) = 0.05 ?
+# P(X > x) = 0.05 -> P(X <= x) = 1 - 0.05 = 0.95
+x_greater_05 = stats.norm.ppf(0.95)
+print(f"Valeur théorique de x telle que P(X > x) = 0.05 : {x_greater_05}")
 ```
 </details>
 
@@ -865,6 +1032,10 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>R</summary>
 
 ```r
+# Quelle est la probabilité théorique p telle que P(X > 1.96) = p ?
+# P(X > 1.96) = 1 - P(X <= 1.96)
+p_greater_1_96 <- 1 - pnorm(1.96)
+cat("Probabilité théorique p telle que P(X > 1.96) = p :", p_greater_1_96, "\n")
 ```
 </details>
 
@@ -872,6 +1043,10 @@ print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 <summary>Python</summary>
 
 ```python
+# Quelle est la probabilité théorique p telle que P(X > 1.96) = p ?
+# P(X > 1.96) = 1 - P(X <= 1.96)
+p_greater_1_96 = 1 - stats.norm.cdf(1.96)
+print(f"Probabilité théorique p telle que P(X > 1.96) = p : {p_greater_1_96}")
 ```
 </details>
 
