@@ -7,6 +7,15 @@ Voici les objectifs de ce chapitre :
 - [ ] Analyser la p-value
 - [ ] Comprendre l'intérêt des hypothèses de départ et alternative
 
+1. [Le test du Chi²](#le-test-du-chi)
+   1. [Objectifs](#objectifs)
+   2. [Exercice 1 : Cas théorique](#exercice-1--cas-théorique)
+      1. [Mémo](#mémo)
+   3. [Exercice 2 : Cas Pratique](#exercice-2--cas-pratique)
+      1. [Lien entre la classe des passagers et leur survie](#lien-entre-la-classe-des-passagers-et-leur-survie)
+      2. [Lien entre la classe des passagers et le genre](#lien-entre-la-classe-des-passagers-et-le-genre)
+      3. [Lien entre le genre des passagers et leur survie](#lien-entre-le-genre-des-passagers-et-leur-survie)
+
 ## Exercice 1 : Cas théorique
 
 ### Mémo
