@@ -21,9 +21,10 @@ Voici les objectifs de ce chapitre :
       2. [Simulation une distribution monotome et non linéaire.](#simulation-une-distribution-monotome-et-non-linéaire)
       3. [Effectuer les 3 tests de corrélations.](#effectuer-les-3-tests-de-corrélations)
    4. [Bonus - Cas de relation non linéaire et non monotone](#bonus---cas-de-relation-non-linéaire-et-non-monotone)
-      1. [Simulation une distribution non linéaire et non monotone.](#simulation-une-distribution-non-linéaire-et-non-monotone)
-      2. [Effectuer les 4 tests de corrélations.](#effectuer-les-4-tests-de-corrélations)
-      3. [Mais cela ne fait pas des miracles](#mais-cela-ne-fait-pas-des-miracles)
+      1. [Mémo](#mémo-2)
+      2. [Simulation une distribution non linéaire et non monotone.](#simulation-une-distribution-non-linéaire-et-non-monotone)
+      3. [Effectuer les 4 tests de corrélations.](#effectuer-les-4-tests-de-corrélations)
+      4. [Mais cela ne fait pas des miracles](#mais-cela-ne-fait-pas-des-miracles)
 
 Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent par défaut dans les environnements [R](https://rdrr.io/snippets/) et [Python](https://colab.research.google.com/). Il est aussi accessible dans le classeur Excel de ce repository.
 
@@ -433,6 +434,11 @@ print(f"Coefficient de corrélation de Kendall: {kendall_corr:.4f}, p-value: {ke
 
 
 ## Bonus - Cas de relation non linéaire et non monotone
+
+### Mémo
+| Nom de l'indicateur                     | Description | Notation | Formule |
+|-----------------------------------------|-------------|----------|---------|
+| **Maximum Information Coefficient (MIC)** | Mesure de la dépendance entre deux variables qui détecte des relations linéaires et non linéaires. | MIC | Contrairement aux autres coefficients de corrélation, il n'a pas de formule simple mais est calculé à l'aide de l'algorithme MINE |
 
 ### Simulation une distribution non linéaire et non monotone. 
 <details>
