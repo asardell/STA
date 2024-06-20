@@ -16,7 +16,7 @@ Voici les objectifs de ce chapitre :
       4. [Lien entre Sepal Width et Sepal Length](#lien-entre-sepal-width-et-sepal-length)
       5. [Lien entre Sepal Length et Petal Width](#lien-entre-sepal-length-et-petal-width)
       6. [Lien entre Sepal Width et Petal Width](#lien-entre-sepal-width-et-petal-width)
-   3. [Exercice 4 - Cas de relation non linéaire mais monotone](#exercice-4---cas-de-relation-non-linéaire-mais-monotone)
+   3. [Exercice 2 - Cas de relation non linéaire mais monotone](#exercice-2---cas-de-relation-non-linéaire-mais-monotone)
    4. [Bonus - Cas de relation non linéaire et non monotone](#bonus---cas-de-relation-non-linéaire-et-non-monotone)
 
 Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent par défaut dans les environnements [R](https://rdrr.io/snippets/) et [Python](https://colab.research.google.com/). Il est aussi accessible dans le classeur Excel de ce repository.
@@ -31,7 +31,6 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 | Coefficient de corrélation  de Pearson | Mesure de la force et de la direction de la relation linéaire entre deux variables aléatoires. | $r$ | $r = \frac{\text{cov}(X, Y)}{s_X \cdot s_Y}$ où $s_X$ et $s_Y$ sont les écart-types de $X$ et $Y$, respectivement. |
 | La taille de l'échantillon    | -        | $n$          | -    |
 | Degrés de liberté     | Nombre de valeurs libres de varier dans le calcul d'une statistique   | $df$     | $n - 2$      |
-| Coefficient de corrélation de Pearson   | Mesure de la force et de la direction de la relation linéaire entre deux variables | $r$          | $r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}$ |
 | Statistique t                           | Valeur calculée pour tester l'hypothèse nulle dans le test de corrélation    | $t$  | $t = r \sqrt{\frac{n - 2}{1 - r^2}}$                                                               |
 | P-value     | Probabilité d'obtenir une statistique t au moins aussi extrême que celle observée, sous l'hypothèse nulle | -            | Déterminée à partir de la distribution t de Student avec $n - 2$ degrés de liberté               |
 
@@ -334,7 +333,7 @@ print(f"P-value: {p}")
 
 Les deux variables ne sont pas indépendantes.
 
-## Exercice 4 - Cas de relation non linéaire mais monotone
+## Exercice 2 - Cas de relation non linéaire mais monotone
 
 
 
