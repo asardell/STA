@@ -24,7 +24,7 @@ Voici les objectifs de ce chapitre :
       13. [Calculer les centiles des variables quantitatives.](#calculer-les-centiles-des-variables-quantitatives)
       14. [Construire un histogramme des variables quantitatives.](#construire-un-histogramme-des-variables-quantitatives)
       15. [Construire un boxplot des variables quantitatives.](#construire-un-boxplot-des-variables-quantitatives)
-   3. [Exercice 2 - Analyse d'une variable qualitatives](#exercice-2---analyse-dune-variable-qualitatives)
+   3. [Exercice 2 - Analyse d'une variable qualitative](#exercice-2---analyse-dune-variable-qualitative)
       1. [Charger les données.](#charger-les-données-1)
       2. [Calculer les effectifs des classes des passagers.](#calculer-les-effectifs-des-classes-des-passagers)
       3. [Calculer les fréquences des classes des passagers.](#calculer-les-fréquences-des-classes-des-passagers)
@@ -225,7 +225,7 @@ max(iris$Sepal.Length) - min(iris$Sepal.Length)
 <summary>Python</summary>
 
 ```python
-iris_df['sepal length (cm)'].max() - iris_df['sepal length (cm)'].mean()
+iris_df['sepal length (cm)'].max() - iris_df['sepal length (cm)'].min()
 ```
 </details>
 
@@ -445,7 +445,7 @@ plt.show()
 </details>
 
 
-## Exercice 2 - Analyse d'une variable qualitatives
+## Exercice 2 - Analyse d'une variable qualitative
 
 | Nom de l'indicateur | Description    | Notation | Formule                          |
 |---------------------|----------------|----------|----------------------------------|

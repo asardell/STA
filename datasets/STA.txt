@@ -1,0 +1,110 @@
+#Maitriser les statistiques descriptives
+
+#Exercice 1 - Analyse d'une variable quantitative
+
+#Charger les données.
+
+# Afficher un extrait
+head(iris)
+
+#Calculer les moyennes des variables quantitatives.
+
+mean(iris$Sepal.Length)
+
+#Calculer les minimums des variables quantitatives.
+
+min(iris$Sepal.Length)
+
+#Calculer les maximums des variables quantitatives.
+
+max(iris$Sepal.Length)
+
+#Calculer les variances des variables quantitatives.
+
+var(iris$Sepal.Length)
+
+#Calculer les écart-types des variables quantitatives.
+
+sd(iris$Sepal.Length)
+
+#Calculer les étendus des variables quantitatives.
+
+max(iris$Sepal.Length) - min(iris$Sepal.Length)
+
+#Calculer les médianes des variables quantitatives.
+
+median(iris$Sepal.Length)
+
+#Calculer les quartiles des variables quantitatives.
+
+quantile(iris$Sepal.Length, probs = 0.25)
+quantile(iris$Sepal.Length, probs = 0.5)
+quantile(iris$Sepal.Length, probs = 0.75)
+
+#Calculer l'écart interquartile des variables quantitatives.
+
+q1 = quantile(iris$Sepal.Length, probs = 0.25)
+q3 = quantile(iris$Sepal.Length, probs = 0.75)
+q3 - q1
+
+#Calculer les déciles des variables quantitatives.
+
+quantile(iris$Sepal.Length, probs = seq(from = 0.1, to = 0.9, by = 0.1))
+
+#Calculer les centiles des variables quantitatives.
+
+quantile(iris$Sepal.Length, probs = seq(from = 0.01, to = 0.99, by = 0.01))
+
+#Construire un histogramme des variables quantitatives.
+
+hist(iris$Sepal.Length, main = "Histogramme Sepal.Length")
+
+#Construire un boxplot des variables quantitatives.
+
+boxplot(iris$Sepal.Length, main = "Boxplot Sepal.Length")
+
+# Exercice 2 - Analyse d'une variable qualitatives
+
+Charger les données.
+R
+# Charger le jeu de données Titanic depuis titanic
+library(titanic)
+
+# Afficher un extrait
+head(titanic_train)
+Python
+Calculer les effectifs des classes des passagers.
+R
+table(titanic_train$Pclass)
+Python
+Excel
+Calculer les fréquences des classes des passagers.
+R
+effectif = table(titanic_train$Pclass)
+prop.table(effectif)
+Python
+Excel
+Calculer les effectifs cumulés des classes des passagers.
+R
+# Compter les effectifs des modalités de la variable Pclass
+effectifs_Pclass <- table(titanic_train$Pclass)
+
+# Calculer les effectifs cumulés
+effectifs_cumules_Pclass <- cumsum(effectifs_Pclass)
+
+# Afficher les effectifs cumulés
+print("Effectifs cumulés des différentes classes de passagers :")
+print(effectifs_cumules_Pclass)
+Python
+Excel
+Construire un diagramme en barres.
+R
+# Compter les effectifs des modalités de la variable Pclass
+effectifs_Pclass <- table(titanic_train$Pclass)
+barplot(effectifs_Pclass, main = "Diagramme Pclass")
+Python
+Construire un diagramme circulaire.
+R
+# Compter les effectifs des modalités de la variable Pclass
+effectifs_Pclass <- table(titanic_train$Pclass)
+pie(effectifs_Pclass, main = "Diagramme Pclass")
