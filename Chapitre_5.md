@@ -284,7 +284,7 @@ plt.show()
 
 ```r
 # Simuler un échantillon de taille 30 suivant une loi normale de paramètre N(µ = 4, σ = 2)
-sample <- rnorm(30, mean = 4, sd = 2)
+sample<- rnorm(30, mean = 4, sd = 2)
 ```
 </details>
 
@@ -295,7 +295,7 @@ sample <- rnorm(30, mean = 4, sd = 2)
 import numpy as np
 import matplotlib.pyplot as pl
 # Simuler un échantillon de taille 30 suivant une loi normale de paramètre N(µ = 4, σ = 2)
-sample = np.random.normal(4, 2, 30)
+sample= np.random.normal(4, 2, 30)
 ```
 </details>
 
@@ -312,11 +312,11 @@ sample = np.random.normal(4, 2, 30)
 
 ```r
 # Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 30
-mean_30 <- mean(sample )
-min_val_30 <- min(sample )
-max_val_30 <- max(sample )
-median_30 <- median(sample )
-std_dev_30 <- sd(sample )
+mean_30 <- mean(sample)
+min_val_30 <- min(sample)
+max_val_30 <- max(sample)
+median_30 <- median(sample)
+std_dev_30 <- sd(sample)
 
 cat("Échantillon de taille 30\n")
 cat("Moyenne:", mean_30, "\n")
@@ -359,7 +359,7 @@ print(f"Écart-type: {std_dev}")
 ```r
 library(ggplot2)
 # Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 30
-ggplot(data.frame(sample ), aes(x = sample )) +
+ggplot(data.frame(sample), aes(x = sample)) +
   geom_histogram(binwidth = 0.5, color = "black", fill = "blue") +
   labs(title = "Histogramme de l'échantillon de taille 30 suivant une loi normale N(4, 2)",
        x = "Valeurs", y = "Fréquence")
@@ -394,7 +394,7 @@ plt.show()
 
 ```r
 # Calculer les quartiles
-quartiles <- quantile(sample , c(0.25, 0.5, 0.75))
+quartiles <- quantile(sample, c(0.25, 0.5, 0.75))
 cat("Quartiles (25%, 50%, 75%):", quartiles , "\n")
 ```
 </details>
@@ -425,7 +425,7 @@ print(f"Quartiles (25%, 50%, 75%): {quartiles}")
 
 ```r
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 2)
-sample <- rnorm(2000, mean = 4, sd = 2)
+sample<- rnorm(2000, mean = 4, sd = 2)
 ```
 </details>
 
@@ -434,7 +434,7 @@ sample <- rnorm(2000, mean = 4, sd = 2)
 
 ```python
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 2)
-sample = np.random.normal(4, 2, 2000)
+sample= np.random.normal(4, 2, 2000)
 ```
 </details>
 
@@ -451,11 +451,11 @@ sample = np.random.normal(4, 2, 2000)
 
 ```r
 # Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
-mean_2000_2 <- mean(sample )
-min_val_2000_2 <- min(sample )
-max_val_2000_2 <- max(sample )
-median_2000_2 <- median(sample )
-std_dev_2000_2 <- sd(sample )
+mean_2000_2 <- mean(sample)
+min_val_2000_2 <- min(sample)
+max_val_2000_2 <- max(sample)
+median_2000_2 <- median(sample)
+std_dev_2000_2 <- sd(sample)
 
 cat("\nÉchantillon de taille 2000 (σ = 2)\n")
 cat("Moyenne:", mean_2000_2, "\n")
@@ -497,7 +497,7 @@ print(f"Écart-type: {std_dev}")
 
 ```r
 # Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
-ggplot(data.frame(sample ), aes(x = sample )) +
+ggplot(data.frame(sample), aes(x = sample)) +
   geom_histogram(binwidth = 0.5, color = "black", fill = "blue") +
   labs(title = "Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 2)",
        x = "Valeurs", y = "Fréquence")
@@ -531,8 +531,8 @@ plt.show()
 
 ```r
 # Calculer les déciles {1, 9} et les centiles {90, 95, 99}
-deciles <- quantile(sample , c(0.10, 0.90))
-centiles <- quantile(sample , c(0.90, 0.95, 0.99))
+deciles <- quantile(sample, c(0.10, 0.90))
+centiles <- quantile(sample, c(0.90, 0.95, 0.99))
 cat("Déciles (10%, 90%):", deciles , "\n")
 cat("Centiles (90%, 95%, 99%):", centiles , "\n")
 ```
@@ -565,7 +565,7 @@ print(f"Centiles (90%, 95%, 99%): {centiles}")
 
 ```r
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 6)
-sample <- rnorm(2000, mean = 4, sd = 6)
+sample<- rnorm(2000, mean = 4, sd = 6)
 ```
 </details>
 
@@ -574,7 +574,7 @@ sample <- rnorm(2000, mean = 4, sd = 6)
 
 ```python
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 6)
-sample = np.random.normal(4, 6, 2000)
+sample= np.random.normal(4, 6, 2000)
 ```
 </details>
 
@@ -591,11 +591,11 @@ sample = np.random.normal(4, 6, 2000)
 
 ```r
 # Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
-mean_2000_6 <- mean(sample )
-min_val_2000_6 <- min(sample )
-max_val_2000_6 <- max(sample )
-median_2000_6 <- median(sample )
-std_dev_2000_6 <- sd(sample )
+mean_2000_6 <- mean(sample)
+min_val_2000_6 <- min(sample)
+max_val_2000_6 <- max(sample)
+median_2000_6 <- median(sample)
+std_dev_2000_6 <- sd(sample)
 
 cat("\nÉchantillon de taille 2000 (σ = 6)\n")
 cat("Moyenne:", mean_2000_6, "\n")
@@ -637,7 +637,7 @@ print(f"Écart-type: {std_dev}")
 
 ```r
 # Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
-ggplot(data.frame(sample ), aes(x = sample )) +
+ggplot(data.frame(sample), aes(x = sample)) +
   geom_histogram(binwidth = 1, color = "black", fill = "blue") +
   labs(title = "Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 6)",
        x = "Valeurs", y = "Fréquence")
@@ -671,8 +671,8 @@ plt.show()
 
 ```r
 # Calculer les déciles {1, 9} et les centiles {90, 95, 99}
-deciles <- quantile(sample , c(0.10, 0.90))
-centiles<- quantile(sample , c(0.90, 0.95, 0.99))
+deciles <- quantile(sample, c(0.10, 0.90))
+centiles<- quantile(sample, c(0.90, 0.95, 0.99))
 cat("Déciles (10%, 90%):", deciles , "\n")
 cat("Centiles (90%, 95%, 99%):", centiles, "\n")
 ```
@@ -707,7 +707,7 @@ print(f"Centiles (90%, 95%, 99%): {centiles}")
 
 ```r
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 0, σ = 1)
-sample <- rnorm(2000, mean = 0, sd = 1)
+sample<- rnorm(2000, mean = 0, sd = 1)
 ```
 </details>
 
@@ -716,7 +716,7 @@ sample <- rnorm(2000, mean = 0, sd = 1)
 
 ```python
 # Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 0, σ = 1)
-sample = np.random.normal(0, 1, 2000)
+sample= np.random.normal(0, 1, 2000)
 ```
 </details>
 
@@ -733,11 +733,11 @@ sample = np.random.normal(0, 1, 2000)
 
 ```r
 # Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
-mean_2000_0_1 <- mean(sample )
-min_val_2000_0_1 <- min(sample )
-max_val_2000_0_1 <- max(sample )
-median_2000_0_1 <- median(sample )
-std_dev_2000_0_1 <- sd(sample )
+mean_2000_0_1 <- mean(sample)
+min_val_2000_0_1 <- min(sample)
+max_val_2000_0_1 <- max(sample)
+median_2000_0_1 <- median(sample)
+std_dev_2000_0_1 <- sd(sample)
 
 cat("\nÉchantillon de taille 2000 (σ = 1)\n")
 cat("Moyenne:", mean_2000_0_1, "\n")
@@ -779,7 +779,7 @@ print(f"Écart-type: {std_dev}")
 
 ```r
 # Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
-ggplot(data.frame(sample), aes(x = sample )) +
+ggplot(data.frame(sample), aes(x = sample)) +
   geom_histogram(binwidth = 0.1, color = "black", fill = "blue") +
   labs(title = "Histogramme de l'échantillon de taille 2000 suivant une loi normale N(0, 1)",
        x = "Valeurs", y = "Fréquence")
@@ -813,8 +813,8 @@ plt.show()
 
 ```r
 # Calculer les déciles {1, 9} et les centiles {90, 95, 99}
-deciles <- quantile(sample , c(0.10, 0.90))
-centiles<- quantile(sample , c(0.90, 0.95, 0.99))
+deciles <- quantile(sample, c(0.10, 0.90))
+centiles<- quantile(sample, c(0.90, 0.95, 0.99))
 cat("Déciles (10%, 90%):", deciles , "\n")
 cat("Centiles (90%, 95%, 99%):", centiles, "\n")
 ```
@@ -966,6 +966,8 @@ print(f"Probabilité théorique p telle que P(X <= 1.96) = p : {p_1_96}")
 </details>
 
 ### Calculer la probabilité cumulative supérieure. 
+
+:bulb: [Petite illustration pour résumer](https://lewebpedagogique.com/abamaths/files/2022/04/20220404_115522.jpg).
 
 1. Quelle est la valeur théorique de $x$ telle que  $P(X > x) = 0.90$ ?
 <details>
