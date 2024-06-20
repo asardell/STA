@@ -9,10 +9,11 @@ Voici les objectifs de ce chapitre :
 1. [Lien entre deux variables qualitatives](#lien-entre-deux-variables-qualitatives)
    1. [Objectifs](#objectifs)
    2. [Exercice 1 - Profils lignes vs Profils colonnes entre deux variables qualitatives](#exercice-1---profils-lignes-vs-profils-colonnes-entre-deux-variables-qualitatives)
-      1. [Calculer les effectifs conditionnels et marginaux.](#calculer-les-effectifs-conditionnels-et-marginaux)
-      2. [Calculer les fréquences conditionnelles et marginales.](#calculer-les-fréquences-conditionnelles-et-marginales)
-      3. [Calculer les profils lignes.](#calculer-les-profils-lignes)
-      4. [Calculer les profils colonnes.](#calculer-les-profils-colonnes)
+      1. [Charger les données.](#charger-les-données)
+      2. [Calculer les effectifs conditionnels et marginaux.](#calculer-les-effectifs-conditionnels-et-marginaux)
+      3. [Calculer les fréquences conditionnelles et marginales.](#calculer-les-fréquences-conditionnelles-et-marginales)
+      4. [Calculer les profils lignes.](#calculer-les-profils-lignes)
+      5. [Calculer les profils colonnes.](#calculer-les-profils-colonnes)
    3. [Exercice 2 - Représentation graphique de deux variables qualitatives](#exercice-2---représentation-graphique-de-deux-variables-qualitatives)
       1. [Diagramme en barres non empilés.](#diagramme-en-barres-non-empilés)
       2. [Diagramme en barres empilés sur les effectifs.](#diagramme-en-barres-empilés-sur-les-effectifs)
@@ -33,11 +34,24 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 
 :warning: On choisit d'étudier le classe des passagers et leur survie (oui/non)
 
-### Calculer les effectifs conditionnels et marginaux. 
+### Charger les données. 
 <details>
 <summary>R</summary>
 
 ```r
+# Charger les librairies nécessaires
+library(titanic)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(DescTools)
+
+# Charger le jeu de données Titanic
+data("titanic_train")
+
+# Filtrer les colonnes nécessaires
+data <- titanic_train %>% select(Pclass, Survived)
+
 ```
 </details>
 
@@ -45,6 +59,41 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import chi2_contingency
+
+# Charger le jeu de données Titanic
+titanic_df = sns.load_dataset('titanic')
+
+# Filtrer les colonnes nécessaires
+data = titanic_df[['class', 'survived']]
+```
+</details>
+
+### Calculer les effectifs conditionnels et marginaux. 
+<details>
+<summary>R</summary>
+
+```r
+# Calculer les effectifs conditionnels et marginaux
+contingency_table <- table(data$class, data$survived)
+contingency_table_margins <- addmargins(contingency_table)
+cat("Effectifs conditionnels et marginaux:\n")
+print(contingency_table_margins)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+# Calculer les effectifs conditionnels et marginaux
+contingency_table = pd.crosstab(data['class'], data['survived'], margins=True)
+print("Effectifs conditionnels et marginaux:")
+print(contingency_table)
 ```
 </details>
 
@@ -60,6 +109,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Calculer les fréquences conditionnelles et marginales
+frequencies <- prop.table(contingency_table_margins)
+cat("\nFréquences conditionnelles et marginales:\n")
+print(frequencies)
 ```
 </details>
 
@@ -67,6 +120,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Calculer les fréquences conditionnelles et marginales
+frequencies = contingency_table / contingency_table.loc['All', 'All']
+print("\nFréquences conditionnelles et marginales:")
+print(frequencies)
 ```
 </details>
 
@@ -82,6 +139,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Calculer les profils lignes (pourcentage lignes)
+row_profiles <- prop.table(contingency_table, 1) * 100
+cat("\nProfils lignes (pourcentage lignes):\n")
+print(row_profiles)
 ```
 </details>
 
@@ -89,6 +150,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Calculer les profils lignes (pourcentage lignes)
+row_profiles = pd.crosstab(data['class'], data['survived']).apply(lambda x: x/x.sum(), axis=1) * 100
+print("\nProfils lignes (pourcentage lignes):")
+print(row_profiles)
 ```
 </details>
 
@@ -104,6 +169,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Calculer les profils colonnes (pourcentage colonnes)
+col_profiles <- prop.table(contingency_table, 2) * 100
+cat("\nProfils colonnes (pourcentage colonnes):\n")
+print(col_profiles)
 ```
 </details>
 
@@ -111,6 +180,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Calculer les profils colonnes (pourcentage colonnes)
+col_profiles = pd.crosstab(data['class'], data['survived']).apply(lambda x: x/x.sum(), axis=0) * 100
+print("\nProfils colonnes (pourcentage colonnes):")
+print(col_profiles)
 ```
 </details>
 
@@ -131,6 +204,13 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Diagramme en barres non empilés
+ggplot(data, aes(x = as.factor(class), fill = as.factor(survived))) +
+  geom_bar(position = "dodge") +
+  labs(title = "Diagramme en barres non empilés",
+       x = "Classe",
+       y = "Nombre de passagers",
+       fill = "Survived")
 ```
 </details>
 
@@ -138,6 +218,14 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Diagramme en barres non empilés
+plt.figure(figsize=(10, 6))
+sns.countplot(x='class', hue='survived', data=data)
+plt.title("Diagramme en barres non empilés")
+plt.xlabel("Classe")
+plt.ylabel("Nombre de passagers")
+plt.legend(title='Survived', loc='upper right')
+plt.show()
 ```
 </details>
 
@@ -154,6 +242,14 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Diagramme en barres empilés sur les effectifs
+df_contingency <- as.data.frame(contingency_table)
+ggplot(df_contingency, aes(x = Var1, y = Freq, fill = Var2)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Diagramme en barres empilés sur les effectifs",
+       x = "Classe",
+       y = "Nombre de passagers",
+       fill = "Survived")
 ```
 </details>
 
@@ -161,6 +257,13 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Diagramme en barres empilés sur les effectifs
+contingency_table_no_margins = contingency_table.drop('All', axis=0).drop('All', axis=1)
+contingency_table_no_margins.plot(kind='bar', stacked=True)
+plt.title("Diagramme en barres empilés sur les effectifs")
+plt.xlabel("Classe")
+plt.ylabel("Nombre de passagers")
+plt.show()
 ```
 </details>
 
@@ -177,6 +280,14 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Diagramme en barres empilés sur les profils lignes
+df_row_profiles <- as.data.frame(row_profiles)
+ggplot(df_row_profiles, aes(x = Var1, y = Freq, fill = Var2)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Diagramme en barres empilés sur les profils lignes",
+       x = "Classe",
+       y = "Pourcentage",
+       fill = "Survived")
 ```
 </details>
 
@@ -184,6 +295,12 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Diagramme en barres empilés sur les profils lignes
+row_profiles.plot(kind='bar', stacked=True)
+plt.title("Diagramme en barres empilés sur les profils lignes")
+plt.xlabel("Classe")
+plt.ylabel("Pourcentage")
+plt.show()
 ```
 </details>
 
@@ -200,6 +317,14 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Diagramme en barres empilés sur les profils colonnes
+df_col_profiles <- as.data.frame(col_profiles)
+ggplot(df_col_profiles, aes(x = Var2, y = Freq, fill = Var1)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Diagramme en barres empilés sur les profils colonnes",
+       x = "Survived",
+       y = "Pourcentage",
+       fill = "Classe")
 ```
 </details>
 
@@ -207,6 +332,12 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Diagramme en barres empilés sur les profils colonnes
+col_profiles.plot(kind='bar', stacked=True)
+plt.title("Diagramme en barres empilés sur les profils colonnes")
+plt.xlabel("Survived")
+plt.ylabel("Pourcentage")
+plt.show()
 ```
 </details>
 
@@ -236,6 +367,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Calculer les effectifs observés
+observed <- contingency_table
+cat("\nEffectifs observés:\n")
+print(observed)
 ```
 </details>
 
@@ -243,6 +378,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Calculer les effectifs observés
+observed = pd.crosstab(data['class'], data['survived'])
+print("\nEffectifs observés:")
+print(observed)
 ```
 </details>
 
@@ -259,6 +398,11 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Calculer les effectifs théoriques et les écarts
+chi2_test <- chisq.test(observed)
+expected <- chi2_test$expected
+cat("\nEffectifs théoriques:\n")
+print(expected)
 ```
 </details>
 
@@ -266,6 +410,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Calculer les effectifs théoriques et les écarts
+chi2, p, dof, expected = chi2_contingency(observed)
+print("\nEffectifs théoriques:")
+print(pd.DataFrame(expected, index=observed.index, columns=observed.columns))
 ```
 </details>
 
@@ -282,6 +430,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Calculer les écarts entre effectifs observés et théoriques
+residuals <- observed - expected
+cat("\nÉcarts entre effectifs observés et théoriques:\n")
+print(residuals)
 ```
 </details>
 
@@ -289,6 +441,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Calculer les écarts entre effectifs observés et théoriques
+residuals = observed - expected
+print("\nÉcarts entre effectifs observés et théoriques:")
+print(residuals)
 ```
 </details>
 
@@ -305,6 +461,10 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>R</summary>
 
 ```r
+# Calculer le V de Cramer
+v_cramer <- CramerV(observed)
+cat("\nV de Cramer:\n")
+print(v_cramer)
 ```
 </details>
 
@@ -312,6 +472,11 @@ Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent 
 <summary>Python</summary>
 
 ```python
+# Calculer le V de Cramer
+n = observed.sum().sum()
+v_cramer = np.sqrt(chi2 / (n * (min(observed.shape) - 1)))
+print("\nV de Cramer:")
+print(v_cramer)
 ```
 </details>
 
