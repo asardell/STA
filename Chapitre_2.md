@@ -270,6 +270,7 @@ plt.show()
 
 ```r
 # Calculer la matrice des corrélations pour les quatre variables quantitatives
+library(corrplot)
 correlation_matrix_all <- cor(iris[, 1:4])
 cat("Matrice des corrélations pour les quatre variables quantitatives :\n")
 print(correlation_matrix_all)
