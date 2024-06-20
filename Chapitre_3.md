@@ -431,7 +431,7 @@ print(pd.DataFrame(expected, index=observed.index, columns=observed.columns))
 
 ```r
 # Calculer les écarts entre effectifs observés et théoriques
-residuals <- observed - expected
+residuals <- ((observed - expected)^2) / expected
 cat("\nÉcarts entre effectifs observés et théoriques:\n")
 print(residuals)
 ```
@@ -442,7 +442,7 @@ print(residuals)
 
 ```python
 # Calculer les écarts entre effectifs observés et théoriques
-residuals = observed - expected
+residuals = ((observed - expected)**2) / expected
 print("\nÉcarts entre effectifs observés et théoriques:")
 print(residuals)
 ```

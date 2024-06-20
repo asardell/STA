@@ -39,6 +39,9 @@ Voici les objectifs de ce chapitre :
 <summary>R</summary>
 
 ```r
+# Simuler un échantillon de taille 30 suivant une loi uniforme de paramètre U(0,1)
+set.seed(123)  # Pour rendre les résultats reproductibles
+sample_30 <- runif(30, min = 0, max = 1)
 ```
 </details>
 
@@ -46,6 +49,11 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simuler un échantillon de taille 30 suivant une loi uniforme de paramètre U(0,1)
+sample_30 = np.random.uniform(0, 1, 30)
 ```
 </details>
 
@@ -61,6 +69,19 @@ Voici les objectifs de ce chapitre :
 <summary>R</summary>
 
 ```r
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 30
+mean_30 <- mean(sample_30)
+min_30 <- min(sample_30)
+max_30 <- max(sample_30)
+median_30 <- median(sample_30)
+std_30 <- sd(sample_30)
+
+cat("Échantillon de taille 30:\n")
+cat("Moyenne:", mean_30, "\n")
+cat("Minimum:", min_30, "\n")
+cat("Maximum:", max_30, "\n")
+cat("Médiane:", median_30, "\n")
+cat("Écart-type:", std_30, "\n")
 ```
 </details>
 
@@ -68,6 +89,19 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 30
+mean_30 = np.mean(sample_30)
+min_30 = np.min(sample_30)
+max_30 = np.max(sample_30)
+median_30 = np.median(sample_30)
+std_30 = np.std(sample_30)
+
+print("Échantillon de taille 30:")
+print(f"Moyenne: {mean_30}")
+print(f"Minimum: {min_30}")
+print(f"Maximum: {max_30}")
+print(f"Médiane: {median_30}")
+print(f"Écart-type: {std_30}")
 ```
 </details>
 
@@ -83,6 +117,16 @@ Voici les objectifs de ce chapitre :
 <summary>R</summary>
 
 ```r
+# Charger les librairies nécessaires
+library(ggplot2)
+
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 30
+ggplot(data.frame(sample_30), aes(x = sample_30)) +
+  geom_histogram(binwidth = 0.1, color = "black", fill = "blue") +
+  labs(title = "Histogramme de l'échantillon de taille 30 suivant une loi uniforme U(0,1)",
+       x = "Valeurs",
+       y = "Fréquence") +
+  theme_minimal()
 ```
 </details>
 
@@ -90,6 +134,13 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 30
+plt.figure(figsize=(10, 6))
+plt.hist(sample_30, bins=10, edgecolor='black')
+plt.title("Histogramme de l'échantillon de taille 30 suivant une loi uniforme U(0,1)")
+plt.xlabel("Valeurs")
+plt.ylabel("Fréquence")
+plt.show()
 ```
 </details>
 
@@ -107,6 +158,9 @@ Voici les objectifs de ce chapitre :
 <summary>R</summary>
 
 ```r
+# Simuler un échantillon de taille 2000 suivant une loi uniforme de paramètre U(0,1)
+set.seed(123)  # Pour rendre les résultats reproductibles
+sample_2000 <- runif(2000, min = 0, max = 1)
 ```
 </details>
 
@@ -114,6 +168,8 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Simuler un échantillon de taille 2000 suivant une loi uniforme de paramètre U(0,1)
+sample_2000 = np.random.uniform(0, 1, 2000)
 ```
 </details>
 
@@ -129,6 +185,19 @@ Voici les objectifs de ce chapitre :
 <summary>R</summary>
 
 ```r
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
+mean_2000 <- mean(sample_2000)
+min_2000 <- min(sample_2000)
+max_2000 <- max(sample_2000)
+median_2000 <- median(sample_2000)
+std_2000 <- sd(sample_2000)
+
+cat("\nÉchantillon de taille 2000:\n")
+cat("Moyenne:", mean_2000, "\n")
+cat("Minimum:", min_2000, "\n")
+cat("Maximum:", max_2000, "\n")
+cat("Médiane:", median_2000, "\n")
+cat("Écart-type:", std_2000, "\n")
 ```
 </details>
 
@@ -136,6 +205,19 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Calculer la moyenne, le minimum, le maximum, la médiane et l'écart-type pour l'échantillon de taille 2000
+mean_2000 = np.mean(sample_2000)
+min_2000 = np.min(sample_2000)
+max_2000 = np.max(sample_2000)
+median_2000 = np.median(sample_2000)
+std_2000 = np.std(sample_2000)
+
+print("\nÉchantillon de taille 2000:")
+print(f"Moyenne: {mean_2000}")
+print(f"Minimum: {min_2000}")
+print(f"Maximum: {max_2000}")
+print(f"Médiane: {median_2000}")
+print(f"Écart-type: {std_2000}")
 ```
 </details>
 
@@ -151,6 +233,16 @@ Voici les objectifs de ce chapitre :
 <summary>R</summary>
 
 ```r
+# Charger les librairies nécessaires
+library(ggplot2)
+
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+ggplot(data.frame(sample_2000), aes(x = sample_2000)) +
+  geom_histogram(binwidth = 0.01, color = "black", fill = "blue") +
+  labs(title = "Histogramme de l'échantillon de taille 2000 suivant une loi uniforme U(0,1)",
+       x = "Valeurs",
+       y = "Fréquence") +
+  theme_minimal()
 ```
 </details>
 
@@ -158,6 +250,13 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+plt.figure(figsize=(10, 6))
+plt.hist(sample_2000, bins=30, edgecolor='black')
+plt.title("Histogramme de l'échantillon de taille 2000 suivant une loi uniforme U(0,1)")
+plt.xlabel("Valeurs")
+plt.ylabel("Fréquence")
+plt.show()
 ```
 </details>
 
@@ -191,6 +290,10 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+import numpy as np
+import matplotlib.pyplot as pl
+# Simuler un échantillon de taille 30 suivant une loi normale de paramètre N(µ = 4, σ = 2)
+sample_30_4_2 = np.random.normal(4, 2, 30)
 ```
 </details>
 
@@ -213,6 +316,17 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+mean = np.mean(sample_30_4_2)
+min_val = np.min(sample_30_4_2)
+max_val = np.max(sample_30_4_2)
+median = np.median(sample_30_4_2)
+std_dev = np.std(sample_30_4_2)
+
+print(f"Moyenne: {mean}")
+print(f"Minimum: {min_val}")
+print(f"Maximum: {max_val}")
+print(f"Médiane: {median}")
+print(f"Écart-type: {std_dev}")
 ```
 </details>
 
@@ -235,6 +349,13 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 30
+plt.figure(figsize=(10, 6))
+plt.hist(sample_30_4_2, bins=10, edgecolor='black')
+plt.title("Histogramme de l'échantillon de taille 30 suivant une loi normale N(4, 2)")
+plt.xlabel("Valeurs")
+plt.ylabel("Fréquence")
+plt.show()
 ```
 </details>
 
@@ -257,6 +378,9 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Calculer les quartiles
+quartiles_30_4_2 = np.percentile(sample_30_4_2, [25, 50, 75])
+print(f"Quartiles (25%, 50%, 75%): {quartiles_30_4_2}")
 ```
 </details>
 
@@ -282,6 +406,8 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 2)
+sample_2000_4_2 = np.random.normal(4, 2, 2000)
 ```
 </details>
 
@@ -304,6 +430,17 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+mean = np.mean(sample_2000_4_2)
+min_val = np.min(sample_2000_4_2)
+max_val = np.max(sample_2000_4_2)
+median = np.median(sample_2000_4_2)
+std_dev = np.std(sample_2000_4_2)
+
+print(f"Moyenne: {mean}")
+print(f"Minimum: {min_val}")
+print(f"Maximum: {max_val}")
+print(f"Médiane: {median}")
+print(f"Écart-type: {std_dev}")
 ```
 </details>
 
@@ -326,6 +463,13 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+plt.figure(figsize=(10, 6))
+plt.hist(sample_2000_4_2, bins=30, edgecolor='black')
+plt.title("Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 2)")
+plt.xlabel("Valeurs")
+plt.ylabel("Fréquence")
+plt.show()
 ```
 </details>
 
@@ -348,6 +492,11 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Calculer les déciles {1, 9} et les centiles {90, 95, 99}
+deciles_2000_4_2 = np.percentile(sample_2000_4_2, [10, 90])
+centiles_2000_4_2 = np.percentile(sample_2000_4_2, [90, 95, 99])
+print(f"Déciles (10%, 90%): {deciles_2000_4_2}")
+print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_2}")
 ```
 </details>
 
@@ -372,6 +521,8 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Simuler un échantillon de taille 2000 suivant une loi normale de paramètre N(µ = 4, σ = 6)
+sample_2000_4_6 = np.random.normal(4, 6, 2000)
 ```
 </details>
 
@@ -394,6 +545,17 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+mean = np.mean(sample_2000_4_6)
+min_val = np.min(sample_2000_4_6)
+max_val = np.max(sample_2000_4_6)
+median = np.median(sample_2000_4_6)
+std_dev = np.std(sample_2000_4_6)
+
+print(f"Moyenne: {mean}")
+print(f"Minimum: {min_val}")
+print(f"Maximum: {max_val}")
+print(f"Médiane: {median}")
+print(f"Écart-type: {std_dev}")
 ```
 </details>
 
@@ -416,6 +578,13 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Représenter graphiquement la distribution dans un histogramme pour l'échantillon de taille 2000
+plt.figure(figsize=(10, 6))
+plt.hist(sample_2000_4_6, bins=30, edgecolor='black')
+plt.title("Histogramme de l'échantillon de taille 2000 suivant une loi normale N(4, 6)")
+plt.xlabel("Valeurs")
+plt.ylabel("Fréquence")
+plt.show()
 ```
 </details>
 
@@ -438,6 +607,11 @@ Voici les objectifs de ce chapitre :
 <summary>Python</summary>
 
 ```python
+# Calculer les déciles {1, 9} et les centiles {90, 95, 99}
+deciles_2000_4_6 = np.percentile(sample_2000_4_6, [10, 90])
+centiles_2000_4_6 = np.percentile(sample_2000_4_6, [90, 95, 99])
+print(f"Déciles (10%, 90%): {deciles_2000_4_6}")
+print(f"Centiles (90%, 95%, 99%): {centiles_2000_4_6}")
 ```
 </details>
 
@@ -452,7 +626,7 @@ Voici les objectifs de ce chapitre :
 
 :bulb: [Petite illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1080px-Normal_Distribution_PDF.svg.png) des différentes distributions selon les paramètres de la loi normale.
 
-1. Simuler un échantillon de taille 2000 suivant une loi uniforme de paramètre $N(\mu = 4, \sigma = 6)$
+1. Simuler un échantillon de taille 2000 suivant une loi uniforme de paramètre $N(\mu = 0, \sigma = 1)$
 <details>
 <summary>R</summary>
 
