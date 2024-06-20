@@ -17,7 +17,13 @@ Voici les objectifs de ce chapitre :
       5. [Lien entre Sepal Length et Petal Width](#lien-entre-sepal-length-et-petal-width)
       6. [Lien entre Sepal Width et Petal Width](#lien-entre-sepal-width-et-petal-width)
    3. [Exercice 2 - Cas de relation non linéaire mais monotone](#exercice-2---cas-de-relation-non-linéaire-mais-monotone)
+      1. [Mémo](#mémo-1)
+      2. [Simulation une distribution monotome et non linéaire.](#simulation-une-distribution-monotome-et-non-linéaire)
+      3. [Effectuer les 3 tests de corrélations.](#effectuer-les-3-tests-de-corrélations)
    4. [Bonus - Cas de relation non linéaire et non monotone](#bonus---cas-de-relation-non-linéaire-et-non-monotone)
+      1. [Simulation une distribution non linéaire et non monotone.](#simulation-une-distribution-non-linéaire-et-non-monotone)
+      2. [Effectuer les 4 tests de corrélations.](#effectuer-les-4-tests-de-corrélations)
+      3. [Mais cela ne fait pas des miracles](#mais-cela-ne-fait-pas-des-miracles)
 
 Dans ce chapitre, nous allons utiliser le jeu de données Iris. Il est présent par défaut dans les environnements [R](https://rdrr.io/snippets/) et [Python](https://colab.research.google.com/). Il est aussi accessible dans le classeur Excel de ce repository.
 
@@ -335,6 +341,203 @@ Les deux variables ne sont pas indépendantes.
 
 ## Exercice 2 - Cas de relation non linéaire mais monotone
 
+### Mémo
+| Nom de l'indicateur                     | Description | Notation | Formule |
+|-----------------------------------------|-------------|----------|---------|
+| **Coefficient de corrélation de Pearson** | Mesure de la force et de la direction de la relation linéaire entre deux variables aléatoires. | $r$ | $r = \frac{\text{cov}(X, Y)}{s_X \cdot s_Y}$ où $s_X$ et $s_Y$ sont les écart-types de $X$ et $Y$, respectivement. |
+| **Coefficient de corrélation de Kendall** | Mesure de la force et de la direction de la relation monotone entre deux variables aléatoires. | $\tau$ | $\tau = \frac{n_c - n_d}{\frac{1}{2}n(n-1)}$ où $n_c$ est le nombre de paires concordantes et $n_d$ est le nombre de paires discordantes. |
+| **Coefficient de corrélation de Spearman** | Mesure de la force et de la direction de la relation monotone entre deux variables aléatoires, basé sur les rangs des données. | $\rho$ | $\rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)}$ où $d_i$ est la différence entre les rangs des paires de données. |
+| **La taille de l'échantillon** | - | $n$ | - |
+| **Degrés de liberté (Pearson et Spearman)** | Nombre de valeurs libres de varier dans le calcul d'une statistique | $df$ | $n - 2$ |
+| **Statistique t (Pearson)** | Valeur calculée pour tester l'hypothèse nulle dans le test de corrélation | $t$ | $t = r \sqrt{\frac{n - 2}{1 - r^2}}$ |
+| **Statistique z (Kendall)** | Valeur calculée pour tester l'hypothèse nulle dans le test de corrélation de Kendall | $z$ | $z = \frac{\tau \sqrt{9n(n-1)}}{\sqrt{2(2n+5)}}$ |
+| **Statistique t (Spearman)** | Valeur calculée pour tester l'hypothèse nulle dans le test de corrélation de Spearman | $t$ | $t = \rho \sqrt{\frac{n - 2}{1 - \rho^2}}$ |
+| **P-value (Pearson)** | Probabilité d'obtenir une statistique t au moins aussi extrême que celle observée, sous l'hypothèse nulle | - | Déterminée à partir de la distribution t de Student avec $n - 2$ degrés de liberté |
+| **P-value (Kendall)** | Probabilité d'obtenir une statistique z au moins aussi extrême que celle observée, sous l'hypothèse nulle | - | Déterminée à partir de la distribution normale standard |
+| **P-value (Spearman)** | Probabilité d'obtenir une statistique t au moins aussi extrême que celle observée, sous l'hypothèse nulle | - | Déterminée à partir de la distribution t de Student avec $n - 2$ degrés de liberté |
+
+### Simulation une distribution monotome et non linéaire. 
+<details>
+<summary>R</summary>
+
+```r
+# Simuler une distribution non linéaire mais monotone avec plus de perturbation gaussienne
+set.seed(0)
+x <- runif(100, -1.5, 1.5)
+y <- sign(x) * (x^4 + 0.1 * rnorm(length(x)))
+
+# Visualiser les données
+df <- data.frame(x = x, y = y)
+ggplot(df, aes(x = x, y = y)) + 
+  geom_point() + 
+  ggtitle("Distribution non linéaire mais monotone avec plus de perturbation") +
+  xlab("x") +
+  ylab("y")
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simuler une distribution non linéaire mais monotone
+np.random.seed(0)
+x = np.random.uniform(-1.5, 1.5, 100)
+y = np.sign(x) * (x**4 + 0.01 * np.random.normal(size=x.size))
+
+# Visualiser les données
+plt.scatter(x, y)
+plt.title('Distribution non linéaire mais monotone')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+```
+</details>
+
+### Effectuer les 3 tests de corrélations. 
+<details>
+<summary>R</summary>
+
+```r
+# Calculer les coefficients de corrélation
+pearson_corr <- cor.test(x, y, method = "pearson")
+spearman_corr <- cor.test(x, y, method = "spearman")
+kendall_corr <- cor.test(x, y, method = "kendall")
+
+# Afficher les résultats
+cat("Coefficient de corrélation de Pearson: ", pearson_corr$estimate, ", p-value: ", pearson_corr$p.value, "\n")
+cat("Coefficient de corrélation de Spearman: ", spearman_corr$estimate, ", p-value: ", spearman_corr$p.value, "\n")
+cat("Coefficient de corrélation de Kendall: ", kendall_corr$estimate, ", p-value: ", kendall_corr$p.value, "\n")
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+from scipy.stats import pearsonr, spearmanr, kendalltau
+# Calculer les coefficients de corrélation
+pearson_corr, pearson_p = pearsonr(x, y)
+spearman_corr, spearman_p = spearmanr(x, y)
+kendall_corr, kendall_p = kendalltau(x, y)
+
+# Afficher les résultats
+print(f"Coefficient de corrélation de Pearson: {pearson_corr:.4f}, p-value: {pearson_p:.4f}")
+print(f"Coefficient de corrélation de Spearman: {spearman_corr:.4f}, p-value: {spearman_p:.4f}")
+print(f"Coefficient de corrélation de Kendall: {kendall_corr:.4f}, p-value: {kendall_p:.4f}")
+```
+</details>
 
 
 ## Bonus - Cas de relation non linéaire et non monotone
+
+### Simulation une distribution non linéaire et non monotone. 
+<details>
+<summary>R</summary>
+
+```r
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import pearsonr, spearmanr, kendalltau
+from minepy import MINE
+
+# Simuler une distribution non linéaire et non monotone avec du bruit gaussien
+np.random.seed(0)
+x = np.random.uniform(0, 1, 100)
+y = np.sin(4 * np.pi * x) + 0.1 * np.random.normal(size=x.size)
+
+# Visualiser les données
+plt.scatter(x, y)
+plt.title('Distribution non linéaire et non monotone')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+```
+</details>
+
+### Effectuer les 4 tests de corrélations. 
+<details>
+<summary>R</summary>
+
+```r
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+# Calculer les coefficients de corrélation
+pearson_corr, pearson_p = pearsonr(x, y)
+spearman_corr, spearman_p = spearmanr(x, y)
+kendall_corr, kendall_p = kendalltau(x, y)
+
+# Calculer le MIC avec MINE
+mine = MINE()
+mine.compute_score(x, y)
+mic = mine.mic()
+
+# Afficher les résultats
+print(f"Coefficient de corrélation de Pearson: {pearson_corr:.4f}, p-value: {pearson_p:.4f}")
+print(f"Coefficient de corrélation de Spearman: {spearman_corr:.4f}, p-value: {spearman_p:.4f}")
+print(f"Coefficient de corrélation de Kendall: {kendall_corr:.4f}, p-value: {kendall_p:.4f}")
+print(f"Maximum Information Coefficient (MIC): {mic:.4f}")
+```
+</details>
+
+
+### Mais cela ne fait pas des miracles
+
+<details>
+<summary>Python</summary>
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import pearsonr, spearmanr, kendalltau
+from minepy import MINE
+from sklearn.datasets import make_regression, make_circles
+
+# Simuler une distribution non linéaire et non monotone avec du bruit gaussien
+np.random.seed(0)
+
+X = make_circles(n_samples=100,factor=0.99, random_state=0, noise=0.05)[0]
+X = pd.DataFrame(X, columns=['x','y'])
+
+x = X['x']
+y = X['y']
+
+# Visualiser les données
+plt.scatter(x, y)
+plt.title('Distribution non linéaire et non monotone')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+
+# Calculer les coefficients de corrélation
+pearson_corr, pearson_p = pearsonr(x, y)
+spearman_corr, spearman_p = spearmanr(x, y)
+kendall_corr, kendall_p = kendalltau(x, y)
+
+# Calculer le MIC avec MINE
+mine = MINE()
+mine.compute_score(x, y)
+mic = mine.mic()
+
+# Afficher les résultats
+print(f"Coefficient de corrélation de Pearson: {pearson_corr:.4f}, p-value: {pearson_p:.4f}")
+print(f"Coefficient de corrélation de Spearman: {spearman_corr:.4f}, p-value: {spearman_p:.4f}")
+print(f"Coefficient de corrélation de Kendall: {kendall_corr:.4f}, p-value: {kendall_p:.4f}")
+print(f"Maximum Information Coefficient (MIC): {mic:.4f}")
+```
+</details>

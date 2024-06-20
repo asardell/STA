@@ -3,13 +3,14 @@
 Ce document `README.md` est présent dans tous les repositories GitHub. Il permet de présenter le contenu du référentiel Git.
 Ce documet est écrit dans le cadre du module d'introduction à la Statistique.
 Les exercices pratiques peuvent-être réaliser sous `R`, `Python` ou `Excel`.
+Pour ne pas télécharger de logiciel, il est recommandé d'utiliser des environnements [R](https://rdrr.io/snippets/) ou  [Python](https://colab.research.google.com/) online. 
 
 ## Objectifs globaux
 
 Voici les objectifs de ce module :
 - [x] Maitriser les statistiques descriptives
 - [x] Construire des analyses univariées et bivariées
-- [x] Découvrir les principales lois statistiques
+- [x] Découvrir les concepts clés des lois statistiques
 - [x] Calculer des intervalles de confiance
 - [x] Choisir et interpréter des tests statistiques
 - [x] Appréhender les bases de la modélisation
@@ -30,13 +31,8 @@ Voici les objectifs de ce module :
 
 ## Liens utiles
 
-Voici quelques liens utiles :
+- [Quel test statistique choisir ? ](https://statsandr.com/blog/what-statistical-test-should-i-do/images/overview-statistical-tests-statsandr.svg)
 
-- [xxxxx](https://asardell.github.io/programmation-r/)
 
-## Tableau Récap
 
-| Nom de la commande | Description | Argument Pertinent | Exemple |
-|------------------|-------------|--------------------|---------|
-| `$` | Accéder à une colonne d'un dataframe | | `df$colonneA` |
 
