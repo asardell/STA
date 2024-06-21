@@ -143,47 +143,64 @@ df_chi2
 ### Lien entre la classe des passagers et leur survie
 
 <details>
-<summary>R</summary>
-
-```r
-```
-</details>
-
-<details>
 <summary>Python</summary>
 
 ```python
+import seaborn as sns
+
+# Charger le jeu de données Titanic depuis seaborn
+titanic = sns.load_dataset('titanic')
+
+# Afficher un extrait
+titanic.head()
+
+import numpy as np
+from scipy.stats import chi2_contingency
+obs = pd.crosstab(titanic.pclass, titanic.survived)
+
+Khi2_obs, p_value, ddl, effectif_theorique = chi2_contingency(obs)
+
+print(f'Khi2  : {Khi2_obs}')
+print(f'p_value  : {p_value}')
+print(f'effectif_theorique  : {effectif_theorique}')
+print(f'ddl  : {ddl}')
 ```
 </details>
 
 ### Lien entre la classe des passagers et le genre
 
 <details>
-<summary>R</summary>
-
-```r
-```
-</details>
-
-<details>
 <summary>Python</summary>
 
 ```python
+import numpy as np
+from scipy.stats import chi2_contingency
+obs = pd.crosstab(titanic.pclass, titanic.sex)
+
+Khi2_obs, p_value, ddl, effectif_theorique = chi2_contingency(obs)
+
+print(f'Khi2  : {Khi2_obs}')
+print(f'p_value  : {p_value}')
+print(f'effectif_theorique  : {effectif_theorique}')
+print(f'ddl  : {ddl}')
 ```
 </details>
 
 ### Lien entre le genre des passagers et leur survie.
 
 <details>
-<summary>R</summary>
-
-```r
-```
-</details>
-
-<details>
 <summary>Python</summary>
 
 ```python
+import numpy as np
+from scipy.stats import chi2_contingency
+obs = pd.crosstab(titanic.sex, titanic.survived)
+
+Khi2_obs, p_value, ddl, effectif_theorique = chi2_contingency(obs)
+
+print(f'Khi2  : {Khi2_obs}')
+print(f'p_value  : {p_value}')
+print(f'effectif_theorique  : {effectif_theorique}')
+print(f'ddl  : {ddl}')
 ```
 </details>
