@@ -14,7 +14,7 @@ Voici les objectifs de ce chapitre :
    3. [Exercice 2 : Cas Pratique](#exercice-2--cas-pratique)
       1. [Lien entre la classe des passagers et leur survie](#lien-entre-la-classe-des-passagers-et-leur-survie)
       2. [Lien entre la classe des passagers et le genre](#lien-entre-la-classe-des-passagers-et-le-genre)
-      3. [Lien entre le genre des passagers et leur survie](#lien-entre-le-genre-des-passagers-et-leur-survie)
+      3. [Lien entre le genre des passagers et leur survie.](#lien-entre-le-genre-des-passagers-et-leur-survie)
 
 ## Exercice 1 : Cas théorique
 
@@ -87,7 +87,7 @@ print(f'ddl  : {ddl}')
 
 4. Calculer manuellement la p-value.
 
-:bulb: On cherche quelle est la probabilité critique pour laquelle $Khi2_obs < Khi2_max$ dans la table du Khi².
+:bulb: On cherche quelle est la probabilité critique pour laquelle $Khi2_obs < Khi2_max$ dans [la table du Khi²](https://i0.wp.com/statisticsbyjim.com/wp-content/uploads/2022/01/chi-square_table.png?resize=625%2C800&ssl=1).
 
 <details>
 <summary>R</summary>
@@ -172,7 +172,7 @@ df_chi2
 ```
 </details>
 
-### Lien entre le genre des passagers et leur survie
+### Lien entre le genre des passagers et leur survie.
 
 <details>
 <summary>R</summary>

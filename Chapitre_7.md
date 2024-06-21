@@ -540,7 +540,7 @@ mine = MINE()
 mine.compute_score(x, y)
 mic = mine.mic()
 
-# Afficher les résultats
+# Afficher les résultats.
 print(f"Coefficient de corrélation de Pearson: {pearson_corr:.4f}, p-value: {pearson_p:.4f}")
 print(f"Coefficient de corrélation de Spearman: {spearman_corr:.4f}, p-value: {spearman_p:.4f}")
 print(f"Coefficient de corrélation de Kendall: {kendall_corr:.4f}, p-value: {kendall_p:.4f}")

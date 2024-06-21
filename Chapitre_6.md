@@ -16,7 +16,7 @@ Voici les objectifs de ce chapitre :
       1. [Mémo](#mémo-1)
       2. [Charger les données.](#charger-les-données-1)
       3. [Calculer un intervalle de confiance d'une proportion.](#calculer-un-intervalle-de-confiance-dune-proportion)
-   4. [Aller plus loin](#aller-plus-loin)
+   4. [Aller plus loin.](#aller-plus-loin)
 
 ## Exercice 1 - Intervalle de confiance de la moyenne
 
@@ -376,6 +376,6 @@ print(f"Intervalle de confiance pour P avec α = 0.01 : {confidence_interval_01}
 </details>
 
 
-## Aller plus loin
+## Aller plus loin.
 
 Bien évidemment, il existe de très nombreuses variantes pour calculer des intervalles de confiance. Selon les paramètres de l'échantillon et du contexte de l'étude, on peut être amené à utiliser d'autres formules et également d'autres lois de probabilités pour calculer le fractile $Z$. [Plus d'information ici](https://statsandr.com/blog/what-statistical-test-should-i-do/images/overview-statistical-tests-statsandr.svg).
