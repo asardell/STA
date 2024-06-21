@@ -40,7 +40,7 @@ L'ANOVA est un test statistique où l'on étudie les variances de chaque groupe 
 - $H_0$ : Les deux variables sont indépendantes car toutes les moyennes de chaque groupe sont égales 
 - $H_1$ : Les deux variables ne sont pas indépendantes car il y a au moins une moyenne d'un groupe différente
 
-1. Simuler les donnée ci-dessous.
+1. Simuler les données ci-dessous.
 
 <details>
 <summary>R</summary>
