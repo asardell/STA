@@ -206,6 +206,7 @@ print(paste("P-value (manuel) :", p_value_manual))
 <summary>Python</summary>
 
 ```python
+from scipy.stats import t
 # Calculer la p-value manuellement
 p_value_manual = 2 * (1 - t.cdf(np.abs(t_stat), df))
 
