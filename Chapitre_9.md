@@ -37,8 +37,8 @@ Voici les objectifs de ce chapitre :
 
 L'ANOVA est un test statistique où l'on étudie les variances de chaque groupe pour affirmer s'il y a des moyennes significativement différementes. On pose donc les hypothèses : 
 
-- $H_0$ : Les deux variables sont indépendantes car toutes les moyennes sont égales dans chaque groupe
-- $H_1$ : Les deux variables ne sont pas indépendantes car il y a au moins une moyenne différentes
+- $H_0$ : Les deux variables sont indépendantes car toutes les moyennes de chaque groupe sont égales 
+- $H_1$ : Les deux variables ne sont pas indépendantes car il y a au moins une moyenne d'un groupe différente
 
 1. Simuler les donnée ci-dessous.
 
