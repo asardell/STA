@@ -100,6 +100,7 @@ corrplot(correlation_matrix_all, method = "color", addCoef.col = "black", tl.col
 <summary>Python</summary>
 
 ```python
+import seaborn as sns
 # Calculer la matrice des corrélations pour les quatre variables quantitatives
 correlation_matrix_all = iris_df.corr()
 print("Matrice des corrélations pour les quatre variables quantitatives :")
