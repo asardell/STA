@@ -6,6 +6,14 @@ Voici les objectifs de ce chapitre :
 - [ ] Calculer et interpréter une régression linaire simple et multiple
 - [ ] Calculer les performances d'un modèle
 
+1. [Démarche d'une modélisation - Cas de la régression linéaire](#démarche-dune-modélisation---cas-de-la-régression-linéaire)
+   1. [Objectifs](#objectifs)
+   2. [Exercice 1 : Régression linéaire simple](#exercice-1--régression-linéaire-simple)
+      1. [Mémo](#mémo)
+      2. [Sepal Length en fonction de Sepal Width](#sepal-length-en-fonction-de-sepal-width)
+      3. [Sepal Length en fonction de Petal Width](#sepal-length-en-fonction-de-petal-width)
+   3. [Bonus : Régression linéaire multiple](#bonus--régression-linéaire-multiple)
+
 ## Exercice 1 : Régression linéaire simple
 
 ### Mémo
