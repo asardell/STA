@@ -214,7 +214,110 @@ print(f'Coefficient de corrélation: {correlation}')
 ### Sepal Length en fonction de Petal Width
 
 
+
 ## Bonus : Régression linéaire multiple
 
 Cas pratique pour prédire Sepal Length en fonction des 3 autres variables quantitatives.
 
+<details>
+<summary>R</summary>
+
+```r
+# Charger les packages nécessaires
+library(datasets)
+library(caret)
+library(ggplot2)
+
+# Charger le dataset Iris
+data(iris)
+
+# Sélectionner les variables
+X <- iris[, c('Sepal.Width', 'Petal.Length', 'Petal.Width')]
+y <- iris$Sepal.Length
+
+# Diviser les données en échantillon d'apprentissage et de test (70% / 30%)
+set.seed(42)
+trainIndex <- createDataPartition(y, p = .7, list = FALSE, times = 1)
+X_train <- X[trainIndex, ]
+y_train <- y[trainIndex]
+X_test <- X[-trainIndex, ]
+y_test <- y[-trainIndex]
+
+# Construire le modèle de régression linéaire
+model <- lm(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width, data = iris[trainIndex, ])
+
+# Analyser les coefficients du modèle
+summary(model)
+
+# Prédire sur les données test
+y_pred <- predict(model, newdata = X_test)
+
+# Représenter graphiquement les valeurs prédites et observées
+df_test <- data.frame(Observed = y_test, Predicted = y_pred)
+ggplot(df_test, aes(x = Predicted, y = Observed)) +
+  geom_point(color = 'black') +
+  geom_abline(slope = 1, intercept = 0, color = 'blue') +
+  labs(x = 'Valeurs prédites', y = 'Valeurs observées', 
+       title = 'Régression Linéaire - Sepal Length vs Sepal Width, Petal Length, Petal Width') +
+  theme_minimal()
+
+# Calculer les métriques pour évaluer le modèle
+mse <- mean((y_test - y_pred)^2)
+rmse <- sqrt(mse)
+r2 <- summary(model)$r.squared
+correlation <- cor(y_test, y_pred)
+
+cat(sprintf('MSE: %f\n', mse))
+cat(sprintf('RMSE: %f\n', rmse))
+cat(sprintf('Coefficient de détermination (R²): %f\n', r2))
+cat(sprintf('Coefficient de corrélation: %f\n', correlation))
+```
+</details>
+
+
+<details>
+<summary>Python</summary>
+
+```python
+# Sélectionner les variables
+X = iris_df[['sepal_width', 'petal_length', 'petal_width']]
+y = iris_df['sepal_length']
+
+# Diviser les données en échantillon d'apprentissage et de test (70% / 30%)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Construire le modèle de régression linéaire
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Analyser les coefficients du modèle
+intercept = model.intercept_
+coefficient = model.coef_
+print(f'Intercept: {intercept}')
+print(f'Coefficient: {coefficient}')
+
+# Prédire sur les données test
+y_pred = model.predict(X_test)
+
+# Représenter graphiquement les valeurs prédites et observées
+plt.figure(figsize=(10, 6))
+plt.scatter(y_pred, y_test, color='black', label='Valeurs observées')
+plt.plot(y_pred, y_pred, color='blue', linewidth=2, label='Valeurs prédites')
+plt.xlabel('Sepal Width')
+plt.ylabel('Sepal Length')
+plt.title('Régression Linéaire - Sepal Length vs Sepal Width')
+plt.legend()
+plt.show()
+
+# Calculer les métriques pour évaluer le modèle
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+correlation = np.corrcoef(y_test, y_pred)[0, 1]
+
+print(f'MSE: {mse}')
+print(f'RMSE: {rmse}')
+print(f'Coefficient de détermination (R²): {r2}')
+print(f'Coefficient de corrélation: {correlation}')
+```
+</details>
