@@ -79,7 +79,7 @@ data = titanic_df[['class', 'survived']]
 
 ```r
 # Calculer les effectifs conditionnels et marginaux
-contingency_table <- table(data$class, data$survived)
+contingency_table <- table(data$Pclass, data$Survived)
 contingency_table_margins <- addmargins(contingency_table)
 cat("Effectifs conditionnels et marginaux:\n")
 print(contingency_table_margins)
@@ -110,7 +110,7 @@ print(contingency_table)
 
 ```r
 # Calculer les fréquences conditionnelles et marginales
-frequencies <- prop.table(contingency_table_margins)
+frequencies <- prop.table(contingency_table)
 cat("\nFréquences conditionnelles et marginales:\n")
 print(frequencies)
 ```
@@ -205,7 +205,7 @@ print(col_profiles)
 
 ```r
 # Diagramme en barres non empilés
-ggplot(data, aes(x = as.factor(class), fill = as.factor(survived))) +
+ggplot(data, aes(x = as.factor(Pclass), fill = as.factor(Survived))) +
   geom_bar(position = "dodge") +
   labs(title = "Diagramme en barres non empilés",
        x = "Classe",
