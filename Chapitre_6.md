@@ -240,6 +240,7 @@ titanic = sns.load_dataset('titanic')
 ### Calculer un intervalle de confiance d'une proportion. 
 
 1. Calculer les paramètres de l'échantillon $n$ et $\hat{p}$.
+
 <details>
 <summary>R</summary>
 

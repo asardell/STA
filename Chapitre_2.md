@@ -19,6 +19,7 @@ Voici les objectifs de ce chapitre :
       7. [Calculer du coefficient de détermination.](#calculer-du-coefficient-de-détermination)
       8. [Construire un nuage de points entre ces deux variables.](#construire-un-nuage-de-points-entre-ces-deux-variables)
       9. [Le Quartet d'Anscombe.](#le-quartet-danscombe)
+      10. [Corrélation != Cause à effet](#corrélation--cause-à-effet)
    3. [Exercice 2 - Matrice de corrélation](#exercice-2---matrice-de-corrélation)
       1. [Calculer la matrice de corrélation des variables quantitatives.](#calculer-la-matrice-de-corrélation-des-variables-quantitatives)
 
@@ -261,6 +262,10 @@ plt.show()
 ### Le Quartet d'Anscombe. 
 
 :warning: Il est toujours important de visualiser ses données. Plus d'info avec le [Quartet d'Anscombe](https://blog.revolutionanalytics.com/2017/05/the-datasaurus-dozen.html)
+
+### Corrélation != Cause à effet
+
+:warning: corrélation ne veut pas dire qu'il y a un lien de cause à effet. Plus d'info sur le site [Spurious Correlations](https://www.tylervigen.com/spurious-correlations).
 
 ## Exercice 2 - Matrice de corrélation
 
