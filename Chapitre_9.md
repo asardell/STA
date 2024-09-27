@@ -19,6 +19,8 @@ Voici les objectifs de ce chapitre :
       4. [Exécution de l'ANOVA](#exécution-de-lanova)
       5. [Test de Tukey](#test-de-tukey)
    5. [Aller plus loin :  L'ANOVA à 2 facteurs](#aller-plus-loin---lanova-à-2-facteurs)
+      1. [Calcul de l'ANOVA à 2 facteurs](#calcul-de-lanova-à-2-facteurs)
+      2. [Interpréatation](#interpréatation)
 
 ## Exercice 1 : Cas théorique
 
@@ -472,3 +474,112 @@ tukey_result.plot_simultaneous()
 
 
 ## Aller plus loin :  L'ANOVA à 2 facteurs
+
+L'ANOVA à deux facteurs (ou ANOVA à deux voies) est une extension de l'ANOVA à un facteur qui permet de tester l'effet de deux facteurs (ou variables indépendantes) simultanément sur une variable dépendante. Cette méthode est utile pour examiner les interactions entre les deux facteurs, c'est-à-dire voir si l'effet d'un facteur sur la variable dépendante dépend du niveau de l'autre facteur.
+L'ANOVA à deux facteurs examine :
+- L'effet principal du facteur A.
+- L'effet principal du facteur B.
+- L'interaction entre les deux facteurs (A * B).
+  
+<details>
+<summary>R</summary>
+
+```r
+# Création de données factices
+set.seed(123)
+groupe <- rep(c("Méthode1", "Méthode2", "Méthode3"), each = 10)
+sexe <- rep(c("Homme", "Femme"), times = 15)
+score <- c(rnorm(10, mean = 75, sd = 10), rnorm(10, mean = 80, sd = 12), rnorm(10, mean = 78, sd = 8))
+
+# Mettre les données dans un data.frame
+data <- data.frame(groupe, sexe, score)
+
+# Affichage des premières lignes
+head(data)
+
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import numpy as np
+import pandas as pd
+
+# Création de données factices
+np.random.seed(123)
+groupe = np.repeat(['Méthode1', 'Méthode2', 'Méthode3'], 10)
+sexe = np.tile(['Homme', 'Femme'], 15)
+score = np.concatenate([np.random.normal(75, 10, 10), np.random.normal(80, 12, 10), np.random.normal(78, 8, 10)])
+
+# Mettre les données dans un DataFrame
+data = pd.DataFrame({'groupe': groupe, 'sexe': sexe, 'score': score})
+
+# Affichage des premières lignes
+print(data.head())
+```
+</details>
+
+### Calcul de l'ANOVA à 2 facteurs
+
+<details>
+<summary>R</summary>
+
+```r
+# Modèle d'ANOVA à deux facteurs
+model <- aov(score ~ groupe * sexe, data = data)
+
+# Résumé de l'ANOVA
+summary(model)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+
+# Modèle d'ANOVA à deux facteurs
+model = ols('score ~ groupe * sexe', data=data).fit()
+anova_table = anova_lm(model)
+
+# Affichage du tableau ANOVA
+print(anova_table)
+```
+</details>
+
+### Interpréatation
+
+<details>
+<summary>R</summary>
+
+```r
+# Test de Tukey HSD pour les deux facteurs
+tukey_result <- TukeyHSD(model, which = "groupe")
+print(tukey_result)
+
+# Visualisation du test de Tukey pour le facteur 'groupe'
+plot(tukey_result)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
+
+# Test de Tukey HSD
+tukey_result = pairwise_tukeyhsd(endog=data['score'], groups=data['groupe'], alpha=0.05)
+
+# Affichage des résultats
+print(tukey_result)
+
+# Visualisation du test de Tukey
+tukey_result.plot_simultaneous()
+```
+</details>
