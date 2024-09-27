@@ -28,8 +28,9 @@ Voici les objectifs de ce chapitre :
 | Nom de l'indicateur | Description    | Notation | Formule                          |
 |---------------------|----------------|----------|----------------------------------|
 | **Somme des carrés totale (SST)**           | Mesure de la variabilité totale dans les données      | SST = SSB + SSW    | $\text{SST} = \sum (X_{ij} - \bar{X})^2$ où $X_{ij}$ est chaque valeur et $\bar{X}$ est la moyenne globale.      |
-| **Somme des carrés entre les groupes (SSB)** | Mesure de la variabilité entre les groupes            | SSB       | $\text{SSB} = n \sum (\bar{X}_i - \bar{X})^2$ |
-| **Somme des carrés à l'intérieur des groupes (SSW)** | Mesure de la variabilité à l'intérieur des groupes     | SSW       | $\text{SSW} = \sum (X_{ij} - \bar{X}_i)^2$.   |
+| **Somme des carrés entre les groupes (SSB)** | Mesure de la variabilité entre les groupes            | SSB       | $\text{SSB} = n \sum (\bar{X}_i - \bar{X})^2$ où $\bar{X}_i$ est la moyenne du $i$ |
+| **Somme des carrés à l'intérieur des groupes (SSW)** | Mesure de la variabilité à l'intérieur des groupes     | SSW       | $\text{SSW} = \sum (X_{ij} - \bar{X}_i)^2$ où $\bar{X}_i$ est la moyenne du $i$
+i-ème groupe.  |
 | **Degrés de liberté entre les groupes**     | Nombre de valeurs libres de varier entre les groupes     | dfB       | $dfB = k - 1$ où $k$ est le nombre de groupes.      |
 | **Degrés de liberté à l'intérieur des groupes** | Nombre de valeurs libres de varier à l'intérieur des groupes        | dfW       | $dfW = n - k$ où $n$ est le nombre total d'observations et $k$ est le nombre de groupes.      |
 | **Moyenne des carrés entre les groupes (MSB)** | Mesure de la variabilité moyenne entre les groupes      | MSB    | $\text{MSB} = \frac{\text{SSB}}{dfB}$     |
