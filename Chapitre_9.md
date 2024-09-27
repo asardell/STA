@@ -12,11 +12,13 @@ Voici les objectifs de ce chapitre :
    2. [Exercice 1 : Cas théorique](#exercice-1--cas-théorique)
       1. [Mémo](#mémo)
    3. [Exercice 2 : Cas Pratique](#exercice-2--cas-pratique)
-      1. [Lien entre Species et Sepal Length](#lien-entre-species-et-sepal-length)
-      2. [Lien entre Species et Sepal Width](#lien-entre-species-et-sepal-width)
-      3. [Lien entre Species et Petal Width](#lien-entre-species-et-petal-width)
-      4. [Lien entre Species et Petal Length](#lien-entre-species-et-petal-length)
    4. [Aller plus loin :  Conditions de validité de l'ANOVA](#aller-plus-loin---conditions-de-validité-de-lanova)
+      1. [Indépendance des observations](#indépendance-des-observations)
+      2. [Normalité des résidus](#normalité-des-résidus)
+      3. [Homogénéité des variances (homoscédasticité)](#homogénéité-des-variances-homoscédasticité)
+      4. [Exécution de l'ANOVA](#exécution-de-lanova)
+      5. [Test de Tukey](#test-de-tukey)
+   5. [Aller plus loin :  L'ANOVA à 2 facteurs](#aller-plus-loin---lanova-à-2-facteurs)
 
 ## Exercice 1 : Cas théorique
 
@@ -274,12 +276,197 @@ print(anova_table)
 
 Pour chaque cas, poser les hypothèses, effectuer une ANOVA et interpréter le résultat.
 
-### Lien entre Species et Sepal Length
+1. Lien entre Species et Sepal Length
 
-### Lien entre Species et Sepal Width
+2. Lien entre Species et Sepal Width
 
-### Lien entre Species et Petal Width
+3. Lien entre Species et Petal Width
 
-### Lien entre Species et Petal Length
+4. Lien entre Species et Petal Length
 
 ## Aller plus loin :  Conditions de validité de l'ANOVA
+
+L'ANOVA (Analyse de la variance) est une technique statistique qui permet de comparer les moyennes de plusieurs groupes pour déterminer s'il existe une différence significative entre elles. Cependant, pour que les résultats de l'ANOVA soient fiables, certaines conditions doivent être respectées. Voici les principales conditions de validité d'une ANOVA :
+
+### Indépendance des observations
+
+Les observations doivent être indépendantes les unes des autres, ce qui signifie que les échantillons de chaque groupe ne doivent pas être liés entre eux.
+
+<details>
+<summary>R</summary>
+
+```r
+# Créer des données factices
+set.seed(123)
+groupe <- rep(c("Méthode1", "Méthode2", "Méthode3"), each = 10)
+score <- c(rnorm(10, mean = 75, sd = 10),
+           rnorm(10, mean = 80, sd = 12),
+           rnorm(10, mean = 78, sd = 8))
+
+# Mettre les données dans un data.frame
+data <- data.frame(groupe, score)
+
+# Afficher un aperçu des données
+head(data)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import numpy as np
+import pandas as pd
+
+# Créer des données factices
+np.random.seed(123)
+groupe = np.repeat(['Méthode1', 'Méthode2', 'Méthode3'], 10)
+score = np.concatenate([np.random.normal(75, 10, 10),
+                        np.random.normal(80, 12, 10),
+                        np.random.normal(78, 8, 10)])
+
+# Mettre les données dans un DataFrame
+data = pd.DataFrame({'groupe': groupe, 'score': score})
+
+# Afficher un aperçu des données
+print(data.head())
+```
+</details>
+
+### Normalité des résidus
+
+Les résidus (ou erreurs) doivent suivre une distribution normale. Cette condition peut être vérifiée par des tests de normalité (test de Shapiro-Wilk, QQ-plot) sur les résidus.
+
+<details>
+<summary>R</summary>
+
+```r
+# ANOVA
+model <- aov(score ~ groupe, data = data)
+
+# Extraction des résidus
+residus <- residuals(model)
+
+# Test de Shapiro-Wilk pour la normalité des résidus
+shapiro.test(residus)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import statsmodels.api as sm
+from scipy import stats
+
+# ANOVA
+model = sm.formula.ols('score ~ groupe', data=data).fit()
+
+# Extraction des résidus
+residus = model.resid
+
+# Test de Shapiro-Wilk pour la normalité des résidus
+shapiro_test = stats.shapiro(residus)
+print(shapiro_test)
+```
+</details>
+
+### Homogénéité des variances (homoscédasticité)
+
+Les variances des différents groupes doivent être homogènes. Cela signifie que la variance dans chaque groupe doit être à peu près la même. Cette condition peut être vérifiée avec le test de Levene ou de Bartlett.
+
+<details>
+<summary>R</summary>
+
+```r
+# Test de Levene
+library(car)
+leveneTest(score ~ groupe, data = data)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+from scipy.stats import levene
+
+# Test de Levene pour l'homogénéité des variances
+levene_test = levene(data[data['groupe'] == 'Méthode1']['score'],
+                     data[data['groupe'] == 'Méthode2']['score'],
+                     data[data['groupe'] == 'Méthode3']['score'])
+print(levene_test)
+```
+</details>
+
+
+### Exécution de l'ANOVA
+
+<details>
+<summary>R</summary>
+
+```r
+# ANOVA
+anova(model)
+
+# Résumé complet de l'ANOVA
+summary(model)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+
+# ANOVA
+model = ols('score ~ groupe', data=data).fit()
+anova_table = anova_lm(model)
+print(anova_table)
+```
+</details>
+
+### Test de Tukey
+
+Le test de Tukey HSD (Tukey's Honest Significant Difference) est un test post-hoc utilisé après une ANOVA pour effectuer des comparaisons multiples entre les moyennes des groupes. Il permet d'identifier quelles paires de groupes sont significativement différentes les unes des autres tout en contrôlant le taux d'erreurs global.
+
+<details>
+<summary>R</summary>
+
+```r
+# ANOVA
+model <- aov(score ~ groupe, data = data)
+
+# Test de Tukey HSD
+tukey_result <- TukeyHSD(model)
+
+# Affichage des résultats
+print(tukey_result)
+
+# Visualisation du test de Tukey
+plot(tukey_result)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import statsmodels.api as sm
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
+
+# Test de Tukey HSD
+tukey_result = pairwise_tukeyhsd(endog=data['score'], groups=data['groupe'], alpha=0.05)
+
+# Affichage des résultats
+print(tukey_result)
+
+# Visualisation du test de Tukey
+tukey_result.plot_simultaneous()
+```
+</details>
+
+
+## Aller plus loin :  L'ANOVA à 2 facteurs
