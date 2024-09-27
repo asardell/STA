@@ -335,6 +335,8 @@ print(data.head())
 
 ### Normalité des résidus
 
+
+L'ANOVA (Analyse de la Variance) et la régression linéaire sont étroitement liées, car elles sont toutes deux des méthodes statistiques qui cherchent à expliquer la variance d'une variable dépendante (ou réponse) en fonction d'une ou plusieurs variables indépendantes. Bien que leurs applications et leurs objectifs spécifiques puissent différer, elles sont basées sur des principes similaires et, sous certains aspects, peuvent être considérées comme des méthodes équivalentes.
 Les résidus (ou erreurs) doivent suivre une distribution normale. Cette condition peut être vérifiée par des tests de normalité (test de Shapiro-Wilk, QQ-plot) sur les résidus.
 
 <details>
