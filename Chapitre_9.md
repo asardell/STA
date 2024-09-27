@@ -573,8 +573,11 @@ plot(tukey_result)
 ```python
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
+# Créer une colonne combinée pour représenter chaque combinaison de groupe et sexe
+data['groupe_sexe'] = data['groupe'] + "_" + data['sexe']
+
 # Test de Tukey HSD
-tukey_result = pairwise_tukeyhsd(endog=data['score'], groups=data['groupe'], alpha=0.05)
+tukey_result = pairwise_tukeyhsd(endog=data['score'], groups=data['groupe_sexe'], alpha=0.05)
 
 # Affichage des résultats
 print(tukey_result)
