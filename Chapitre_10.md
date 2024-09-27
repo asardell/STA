@@ -212,7 +212,7 @@ y_pred = model.predict(X_test)
 ```
 </details>
 
-8. Représenter graphiquement la variables explicative et la variables à expliquer avec la droite de régression
+7. Représenter graphiquement la variables explicative et la variables à expliquer avec la droite de régression
 
 <details>
 <summary>R</summary>
@@ -260,7 +260,7 @@ plt.show()
 </details>
 
 
-9.  Représenter graphiquement les valeurs prédites et observés.
+8.  Représenter graphiquement les valeurs prédites et observés.
 
 <details>
 <summary>R</summary>
@@ -320,7 +320,7 @@ plt.show()
 ```
 </details>
 
-10. Calculer les métriques pour évaluer le modèle (coefficient de corrélation, MSE, RMSE).
+9. Calculer les métriques pour évaluer le modèle (coefficient de corrélation, MSE, RMSE).
 
 <details>
 <summary>R</summary>
