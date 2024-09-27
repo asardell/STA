@@ -23,7 +23,8 @@ Voici les objectifs de ce chapitre :
 | **Échantillon de test (test set)**            | Sous-ensemble de données utilisé pour évaluer la performance du modèle entraîné.                                | -        | -       |
 | **Erreur quadratique moyenne (MSE)**          | Mesure de la qualité d'un estimateur en calculant la moyenne des carrés des erreurs ou résidus.                  | MSE      | $\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$ |
 | **Erreur quadratique moyenne racine (RMSE)**  | Racine carrée de la MSE, mesurant la différence moyenne entre les valeurs observées et prédites.                | RMSE     | $\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$ |
-| **Coefficient de détermination (R²)**         | Proportion de la variance totale des variables dépendantes expliquée par le modèle de régression.                | $R^2$    | $R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$ |
+| **Coefficient de corrélation** | Mesure de la force et de la direction de la relation linéaire entre deux variables aléatoires. | $r$ | $r = \frac{\text{cov}(X, Y)}{s_X \cdot s_Y}$ où $s_X$ et $s_Y$ sont les écart-types de $X$ et $Y$, respectivement. |
+| **Coefficient de détermination (R²)**         | Proportion de la variance totale des variables dépendantes expliquée par le modèle de régression.                | $R^2$ | $R^2 = r^2$ |
 | **Pente (Coefficient de régression)**         | Mesure de la force et de la direction de la relation linéaire entre deux variables dans un modèle de régression. | $\beta$  | $\beta = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}$ |
 | **Intercept**                                 | Valeur de la variable dépendante lorsque toutes les variables indépendantes sont nulles (point où la droite coupe l'axe Y). | $\alpha$ | $\alpha = \bar{y} - \beta \bar{x}$ |
 
@@ -85,7 +86,69 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 ```
 </details>
 
-2. Construire le modèle de régression linéaire.
+2. Afficher le nuage de point de la relation en les deux variables
+
+<details>
+<summary>R</summary>
+
+```r
+# Nuage de points pour les données d'entraînement
+plot(X_train, y_train, 
+     main = "Nuage de points et droite de régression (Iris)", 
+     xlab = "Longueur des sépales (cm)", 
+     ylab = "Largeur des sépales (cm)", 
+     pch = 19, col = "black")
+
+# Ajouter une légende
+legend("topright", legend = "Valeurs observées", col = "black", pch = 19)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+# Taille de la figure
+plt.figure(figsize=(10, 6))
+
+# Nuage de points pour les données d'entraînement
+plt.scatter(X_train, y_train, color='black', label='Valeurs observées')
+
+# Ajouter des labels et une légende
+plt.xlabel('Longueur des sépales (cm)')
+plt.ylabel('Largeur des sépales (cm)')
+plt.title('Nuage de points et droite de régression (Iris)')
+plt.legend()
+
+# Afficher le graphique
+plt.show()
+```
+</details>
+
+3. Calculer le coefficient de corrélation
+
+<details>
+<summary>R</summary>
+
+```r
+correlation <- cor(X_train, y_train)
+print(correlation)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+import numpy as np
+# Calculer le coefficient de corrélation avec NumPy
+correlation = np.corrcoef(X.values.flatten(), y)[0, 1]
+print(f"Coefficient de corrélation (NumPy) entre la longueur et la largeur des sépales : {correlation:.2f}")
+
+```
+</details>
+
+4. Construire le modèle de régression linéaire.
 
 <details>
 <summary>R</summary>
@@ -106,7 +169,7 @@ model.fit(X_train, y_train)
 ```
 </details>
 
-3. Analyser les coéfficients du modèle.
+5. Analyser les coéfficients du modèle.
 
 <details>
 <summary>R</summary>
@@ -129,14 +192,14 @@ print(f'Coefficient: {coefficient}')
 ```
 </details>
 
-4. Prédire sur les données test.
+6. Prédire sur les données test.
 
 <details>
 <summary>R</summary>
 
 ```r
 # Prédire sur les données test
-y_pred <- predict(model, newdata = iris[-trainIndex,])
+y_pred <- predict(model, newdata = X_test)
 ```
 </details>
 
@@ -149,20 +212,26 @@ y_pred = model.predict(X_test)
 ```
 </details>
 
-5. Représenter graphiquement les valeurs prédites et observés.
+8. Représenter graphiquement la variables explicative et la variables à expliquer avec la droite de régression
 
 <details>
 <summary>R</summary>
 
 ```r
-# Représenter graphiquement les valeurs prédites et observées
-df_test <- data.frame(Sepal.Width = X_test, Observed = y_test, Predicted = y_pred)
-ggplot(df_test, aes(x = Sepal.Width)) +
-  geom_point(aes(y = Observed), color = 'black', size = 2) +
-  geom_line(aes(y = Predicted), color = 'blue', size = 1) +
-  labs(x = 'Sepal Width', y = 'Sepal Length', 
-       title = 'Régression Linéaire - Sepal Length vs Sepal Width') +
-  theme_minimal()
+# Nuage de points pour les données d'entraînement
+plot(X_train, y_train, 
+     main = "Nuage de points et droite de régression (Iris)", 
+     xlab = "Longueur des sépales (cm)", 
+     ylab = "Largeur des sépales (cm)", 
+     pch = 19, col = "black")
+
+# Tracer la droite de régression
+# Supposons que y_pred est préalablement calculé à partir d'un modèle
+abline(lm(y_train ~ X_train), col = "blue")
+
+# Ajouter une légende
+legend("topright", legend = c("Valeurs observées", "Droite de régression"), 
+       col = c("black", "blue"), pch = c(19, NA), lty = c(NA, 1))
 ```
 </details>
 
@@ -170,19 +239,88 @@ ggplot(df_test, aes(x = Sepal.Width)) +
 <summary>Python</summary>
 
 ```python
-# Représenter graphiquement les valeurs prédites et observées
+# Taille de la figure
 plt.figure(figsize=(10, 6))
-plt.scatter(X_test, y_test, color='black', label='Valeurs observées')
-plt.plot(X_test, y_pred, color='blue', linewidth=2, label='Valeurs prédites')
-plt.xlabel('Sepal Width')
-plt.ylabel('Sepal Length')
-plt.title('Régression Linéaire - Sepal Length vs Sepal Width')
+
+# Nuage de points pour les données d'entraînement
+plt.scatter(X_train, y_train, color='black', label='Valeurs observées')
+
+# Tracer la droite de régression
+plt.plot(X_test, y_pred, color='blue', label='Droite de régression')
+
+# Ajouter des labels et une légende
+plt.xlabel('Longueur des sépales (cm)')
+plt.ylabel('Largeur des sépales (cm)')
+plt.title('Nuage de points et droite de régression (Iris)')
 plt.legend()
+
+# Afficher le graphique
 plt.show()
 ```
 </details>
 
-6. Calculer les métriques pour évaluer le modèle (coefficient de corrélation, MSE, RMSE).
+
+9.  Représenter graphiquement les valeurs prédites et observés.
+
+<details>
+<summary>R</summary>
+
+```r
+# Nuage de points pour les valeurs observées et prédites
+plot(y_test, y_pred, 
+     main = "Nuage de Points: Valeurs Observées vs Prédictions", 
+     xlab = "Valeurs Observées", 
+     ylab = "Valeurs Prédites", 
+     pch = 19, col = "black")
+
+# Tracer la droite d'équation y = x
+max_val <- max(max(y_test), max(y_pred))
+abline(a = 0, b = 1, col = "blue", lty = 2)
+
+# Définir les limites des axes
+xlim <- c(0, max_val)
+ylim <- c(0, max_val)
+xlim(xlim)
+ylim(ylim)
+
+# Ajouter une légende
+legend("topleft", legend = "y = x (Droite de référence)", col = "blue", lty = 2)
+```
+</details>
+
+<details>
+<summary>Python</summary>
+
+```python
+# Taille de la figure
+plt.figure(figsize=(10, 6))
+
+# Nuage de points pour les valeurs observées et prédites
+plt.scatter(y_test, y_pred, color='black', label='Valeurs Observées vs Prédictions')
+
+# Tracer la droite d'équation y = x
+max_val = max(y_test.max(), y_pred.max())
+plt.plot([0, max_val], [0, max_val], color='blue', linestyle='--', label='y = x (Droite de référence)')
+
+# Définir les limites des axes
+plt.xlim(0, max_val)
+plt.ylim(0, max_val)
+
+# Assurer que les axes ont la même échelle
+plt.gca().set_aspect('equal', adjustable='box')
+
+# Ajouter des labels et une légende
+plt.xlabel('Valeurs Observées')
+plt.ylabel('Valeurs Prédites')
+plt.title('Nuage de Points: Valeurs Observées vs Prédictions')
+plt.legend()
+
+# Afficher le graphique
+plt.show()
+```
+</details>
+
+10. Calculer les métriques pour évaluer le modèle (coefficient de corrélation, MSE, RMSE).
 
 <details>
 <summary>R</summary>
@@ -311,10 +449,6 @@ y_pred = model.predict(X_test)
 plt.figure(figsize=(10, 6))
 plt.scatter(y_pred, y_test, color='black', label='Valeurs observées')
 plt.plot(y_pred, y_pred, color='blue', linewidth=2, label='Valeurs prédites')
-plt.xlabel('Sepal Width')
-plt.ylabel('Sepal Length')
-plt.title('Régression Linéaire - Sepal Length vs Sepal Width')
-plt.legend()
 plt.show()
 
 # Calculer les métriques pour évaluer le modèle
