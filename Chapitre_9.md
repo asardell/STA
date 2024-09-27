@@ -25,7 +25,7 @@ Voici les objectifs de ce chapitre :
 ### Mémo
 | Nom de l'indicateur | Description    | Notation | Formule                          |
 |---------------------|----------------|----------|----------------------------------|
-| **Somme des carrés totale (SST)**           | Mesure de la variabilité totale dans les données      | SST       | $\text{SST} = \sum (X_{ij} - \bar{X})^2$ où $X_{ij}$ est chaque valeur et $\bar{X}$ est la moyenne globale.      |
+| **Somme des carrés totale (SST)**           | Mesure de la variabilité totale dans les données      | SST = SSB + SSW    | $\text{SST} = \sum (X_{ij} - \bar{X})^2$ où $X_{ij}$ est chaque valeur et $\bar{X}$ est la moyenne globale.      |
 | **Somme des carrés entre les groupes (SSB)** | Mesure de la variabilité entre les groupes            | SSB       | $\text{SSB} = \sum n_j (\bar{X}_j - \bar{X})^2$ où $n_j$ est la taille du groupe $j$, $\bar{X}_j$ est la moyenne du groupe $j$, et $\bar{X}$ est la moyenne globale. |
 | **Somme des carrés à l'intérieur des groupes (SSW)** | Mesure de la variabilité à l'intérieur des groupes                                                  | SSW       | $\text{SSW} = \sum_{j=1}^{k} \sum_{i=1}^{n_j} (X_{ij} - \bar{X}_j)^2$ où $X_{ij}$ est chaque valeur et $\bar{X}_j$ est la moyenne du groupe $j$.   |
 | **Degrés de liberté entre les groupes**     | Nombre de valeurs libres de varier entre les groupes     | dfB       | $dfB = k - 1$ où $k$ est le nombre de groupes.      |
